@@ -15,6 +15,12 @@ public class ItemButton : MonoBehaviour
     public int startGoldPerSec = 1;
     public float costPow = 3.14f;
     public float upgradePow = 1.07f;
+    [HideInInspector]
+    public bool isPurchased = false;
+    public void PurchaseItem()
+    {
+        
+    }
 
 
 }
