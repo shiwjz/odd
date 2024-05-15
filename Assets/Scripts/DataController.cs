@@ -27,7 +27,7 @@ public class DataController : MonoBehaviour
         // key : VALUE
         m_gold = PlayerPrefs.GetInt("Gold");
         m_goldPerClick = PlayerPrefs.GetInt("GoldPerClick", 1);
-        ItemButtons = FindObjectsOfType<ItemButton>();
+        
     }
 
     public void SetGold(int newGold)
@@ -112,10 +112,5 @@ public class DataController : MonoBehaviour
         {
             PlayerPrefs.SetInt(key + "isPurchased", 0);
         }
-        
      }
-    public int GetGoldPerSec()
-    {
-        for(int i = 0; i < ItemButton.Length; i++)
-    }
 }
