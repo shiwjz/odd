@@ -114,8 +114,5 @@ public class DataController : MonoBehaviour
         }
         
      }
-    public int GetGoldPerSec()
-    {
-        for(int i = 0; i < ItemButton.Length; i++)
-    }
+    
 }
