@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SelectConfirm : MonoBehaviour
+
 {
     public void Confirm()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("SampleScene");
     }
 }

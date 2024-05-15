@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldDisplayer: {fileID: 1784203521}
+  goldPerClickDisplayer: {fileID: 1022235789}
   dataController: {fileID: 1703912939}
 --- !u!1 &519420028
 GameObject:
