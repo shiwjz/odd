@@ -77,7 +77,7 @@ public class DataController : MonoBehaviour
     {
         string key = upgradeButton.upgradeName;
 
-        PlayerPrefs.SetInt(key + "_level",upgradeButton.level);
+        PlayerPrefs.SetInt(key + "_level", upgradeButton.level);
         PlayerPrefs.SetInt(key + "_goldByUpgrade", upgradeButton.goldByUpgrade);
         PlayerPrefs.SetInt(key + "_cost", upgradeButton.currentCost);
     }
@@ -104,14 +104,26 @@ public class DataController : MonoBehaviour
         PlayerPrefs.SetInt(key + "_level", itemButton.level);
         PlayerPrefs.SetInt(key + "_cost", itemButton.currentCost);
         PlayerPrefs.SetInt(key + "_goldPerSec", itemButton.goldPerSec);
+
         if (itemButton.isPurchased == true)
         {
-            PlayerPrefs.SetInt(key + "isPurchased", 1);
+            PlayerPrefs.SetInt(key + "_isPurchased",1);
+            
         }
         else
         {
-            PlayerPrefs.SetInt(key + "isPurchased", 0);
+            PlayerPrefs.SetInt(key + "_isPurchased", 0);
         }
-        
-     }
+    }
+
+    public int GetGoldPerSec()
+    {
+        int goldPerSec = 0;
+        for(int i = 0; i < itemButtons.Length; i++)
+        {
+            goldPerSec += itemButtons[i].goldPerSec;
+        }
+        return goldPerSec;
+    }
+
 }
