@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ItemButton : MonoBehaviour
 {
+    public TMP_Text itemDisplayer;
     
     public string itemName;
     public int level;
@@ -15,6 +18,46 @@ public class ItemButton : MonoBehaviour
     public int startGoldPerSec = 1;
     public float costPow = 3.14f;
     public float upgradePow = 1.07f;
+    [HideInInspector]
+    public bool isPurchased = false;
+    void Start()
+    {
+        DataController.GetInstance().LoadItemButton(this);
+        StartCoroutine("AddGoldLoop");
+        UpdateUI();
+    }
+    public void PurchaseItem()
+    {
+        if(DataController.GetInstance().GetGold() >= currentCost)
+        {
+            isPurchased = true;
+            DataController.GetInstance().SubGold(currentCost);
+            level++;
 
+            UpdateItem();
+            UpdateUI();
+            DataController.GetInstance().SaveItemButton(this);
+        }
+        IEnumerator AddGoldLoop()
+        {
+            while(true)
+            {
+                if(isPurchased)
+                {
+                    DataController.GetInstance().AddGold(goldPerSec);
+                }
+                yield return new WaitForSeconds(1.0f);
+            }
+        }
+    }
 
+    public void UpdateItem()
+    {
+        goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow, level);
+        currentCost = startCurrentCost + (int)Mathf.Pow(costPow, level);
+    }
+    public void UpdateUI()
+    {
+        itemDisplayer.text = itemName + "\nLevel: " + level + "\nCost: " + currentCost + "\nGold Per Sec: " + goldPerSec + "\nIsPurchased: " + isPurchased;
+    }
 }
