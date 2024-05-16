@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemButton : MonoBehaviour
 {
     public TMP_Text itemDisplayer;
-
+    
     public string itemName;
 
     public int level;
@@ -27,18 +28,14 @@ public class ItemButton : MonoBehaviour
     public float costPow = 3.14f;
 
     public float upgradePow = 1.07f;
-    
+    [HideInInspector]
     public bool isPurchased = false;
-
     void Start()
     {
         DataController.GetInstance().LoadItemButton(this);
-
         StartCoroutine("AddGoldLoop");
-
         UpdateUI();
     }
-
     public void PurchaseItem()
     {
         if(DataController.GetInstance().GetGold() >= currentCost)
