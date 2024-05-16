@@ -15,6 +15,5 @@ public class UIManager : MonoBehaviour
     {
         goldDisplayer.text = "GOLD: " + DataController.GetInstance().GetGold();
         goldPerClickDisplayer.text = "GOLD PER CLICK: " + DataController.GetInstance().GetGoldPerClick();
-        goldPerSecDisplayer.text = "GOLD PER SEC: " + DataController.GetInstance().GetGoldPerSec();
     }
 }

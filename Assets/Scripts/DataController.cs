@@ -116,14 +116,5 @@ public class DataController : MonoBehaviour
         }
     }
 
-    public int GetGoldPerSec()
-    {
-        int goldPerSec = 0;
-        for(int i = 0; i < itemButtons.Length; i++)
-        {
-            goldPerSec += itemButtons[i].goldPerSec;
-        }
-        return goldPerSec;
-    }
 
 }
