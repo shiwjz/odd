@@ -5,6 +5,7 @@ using UnityEngine;
 public class DataController : MonoBehaviour
 {
     private static DataController instance;
+
     public static DataController GetInstance()
     {
         if (instance == null)
@@ -21,12 +22,15 @@ public class DataController : MonoBehaviour
     private ItemButton[] ItemButtons;
     private int m_gold = 0;
     private int m_goldPerClick = 0;
+    private int m_goldPerSec = 0;
+
 
     void Awake()
     {
-        // key : VALUE
+        //key : VALUE
         m_gold = PlayerPrefs.GetInt("Gold");
         m_goldPerClick = PlayerPrefs.GetInt("GoldPerClick", 1);
+        m_goldPerSec = PlayerPrefs.GetInt("GoldPerSec", 0);
         ItemButtons = FindObjectsOfType<ItemButton>();
     }
 
@@ -85,8 +89,8 @@ public class DataController : MonoBehaviour
     {
         string key = itemButton.itemName;
 
-        //itemButton.level = PlayerPrefs.GetInt(key + "_level");
-        //itemButton.currentCost = PlayerPrefs.GetInt(key + "_cost", itemButton.startCurrentCost);
+        itemButton.level = PlayerPrefs.GetInt(key + "_level");
+        itemButton.currentCost = PlayerPrefs.GetInt(key + "_cost", itemButton.startCurrentCost);
 
         itemButton.goldPerSec = PlayerPrefs.GetInt(key + "_goldPerSec");
         if(PlayerPrefs.GetInt(key + "_isPurchased") == 1)
@@ -101,8 +105,8 @@ public class DataController : MonoBehaviour
     public void SaveItemButton(ItemButton itemButton)
     {
         string key = itemButton.itemName;
-        //PlayerPrefs.SetInt(key + "_level", itemButton.level);
-        //PlayerPrefs.SetInt(key + "_cost", itemButton.currentCost);
+        PlayerPrefs.SetInt(key + "_level", itemButton.level);
+        PlayerPrefs.SetInt(key + "_cost", itemButton.currentCost);
         PlayerPrefs.SetInt(key + "_goldPerSec", itemButton.goldPerSec);
 
         if (itemButton.isPurchased == true)
