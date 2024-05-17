@@ -85,8 +85,9 @@ public class DataController : MonoBehaviour
     {
         string key = itemButton.itemName;
 
-        itemButton.level = PlayerPrefs.GetInt(key + "_level");
-        itemButton.currentCost = PlayerPrefs.GetInt(key + "_cost", itemButton.startCurrentCost);
+        //itemButton.level = PlayerPrefs.GetInt(key + "_level");
+        //itemButton.currentCost = PlayerPrefs.GetInt(key + "_cost", itemButton.startCurrentCost);
+
         itemButton.goldPerSec = PlayerPrefs.GetInt(key + "_goldPerSec");
         if(PlayerPrefs.GetInt(key + "_isPurchased") == 1)
         {
@@ -100,9 +101,8 @@ public class DataController : MonoBehaviour
     public void SaveItemButton(ItemButton itemButton)
     {
         string key = itemButton.itemName;
-
-        PlayerPrefs.SetInt(key + "_level", itemButton.level);
-        PlayerPrefs.SetInt(key + "_cost", itemButton.currentCost);
+        //PlayerPrefs.SetInt(key + "_level", itemButton.level);
+        //PlayerPrefs.SetInt(key + "_cost", itemButton.currentCost);
         PlayerPrefs.SetInt(key + "_goldPerSec", itemButton.goldPerSec);
 
         if (itemButton.isPurchased == true)
@@ -119,9 +119,9 @@ public class DataController : MonoBehaviour
     public int GetGoldPerSec()
     {
         int goldPerSec = 0;
-        for(int i = 0; i < itemButtons.Length; i++)
+        for(int i = 0; i < ItemButtons.Length; i++)
         {
-            goldPerSec += itemButtons[i].goldPerSec;
+            goldPerSec += ItemButtons[i].goldPerSec;
         }
         return goldPerSec;
     }

@@ -7,31 +7,41 @@ using TMPro;
 
 public class ItemButton : MonoBehaviour
 {
+
     public TMP_Text itemDisplayer;
-    
+
+
+    public TMP_Text itemNameDisplayer;
+
     public string itemName;
 
-    public int level;
+    //public int level;
 
-    [HideInInspector]
+    //[HideInInspector]
 
     public int currentCost;
 
     public int startCurrentCost = 1;
 
-    [HideInInspector]
+    //[HideInInspector]
 
     public int goldPerSec;
 
     public int startGoldPerSec = 1;
 
-    public float costPow = 3.14f;
+    /// <summary>
+    /// public float costPow = 3.14f;
+    /// </summary>
 
-    public float upgradePow = 1.07f;
+    //public float upgradePow = 1.07f;
     [HideInInspector]
+
+    //public float upgradePow = 1.07f;
+    
     public bool isPurchased = false;
     void Start()
     {
+
         DataController.GetInstance().LoadItemButton(this);
         StartCoroutine("AddGoldLoop");
         UpdateUI();
@@ -42,9 +52,9 @@ public class ItemButton : MonoBehaviour
         {
             isPurchased = true;
             DataController.GetInstance().SubGold(currentCost);
-            level++;
+            //level++;
 
-            UpdateItem();
+            //UpdateItem();
             UpdateUI();
             DataController.GetInstance().SaveItemButton(this);
         }
@@ -65,14 +75,15 @@ public class ItemButton : MonoBehaviour
         
     }
 
-    public void UpdateItem()
-    {
-        goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow,level);
-        currentCost = startCurrentCost * (int)Mathf.Pow(costPow,level);
-    }
+    //public void UpdateItem()
+    //{
+        //goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow,level);
+       // currentCost = startCurrentCost * (int)Mathf.Pow(costPow,level);
+    //}
 
     public void UpdateUI()
     {
-        itemDisplayer.text = itemName + "/nLevel: " + "/nCost: " + currentCost + "/nGold Per Sec: " + goldPerSec + "/nIsPurchased" + isPurchased;
+        itemNameDisplayer.text = itemName;
+        itemDisplayer.text = "\nGold Per Sec: " + goldPerSec + "\nIsPurchased" + isPurchased;
     }
 }
