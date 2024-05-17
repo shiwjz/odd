@@ -12,13 +12,13 @@ public class SoundManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         musicsource.volume = volume;
-        PlayerPrefs.SetFloat("MusicVolume",musicsource.volume);
+
     }
 
     public void SetButtonVolume(float volume)
     {
         btnsource.volume = volume;
-        PlayerPrefs.SetFloat("SfxVolume", btnsource.volume);
+
     }
     public void OnSfx()
     {

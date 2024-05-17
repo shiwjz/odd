@@ -10,12 +10,14 @@ public class ItemButton : MonoBehaviour
 
     public TMP_Text itemDisplayer;
 
+    public TMP_Text PurchaseDisplayer;
+
 
     public TMP_Text itemNameDisplayer;
 
     public string itemName;
 
-    //public int level;
+    public int level;
 
     //[HideInInspector]
 
@@ -29,19 +31,17 @@ public class ItemButton : MonoBehaviour
 
     public int startGoldPerSec = 1;
 
-    /// <summary>
-    /// public float costPow = 3.14f;
-    /// </summary>
+    public float costPow = 3.14f;
 
-    //public float upgradePow = 1.07f;
-    [HideInInspector]
+    //[HideInInspector]
 
-    //public float upgradePow = 1.07f;
+    public float upgradePow = 1.07f;
     
     public bool isPurchased = false;
+
+
     void Start()
     {
-
         DataController.GetInstance().LoadItemButton(this);
         StartCoroutine("AddGoldLoop");
         UpdateUI();
@@ -50,13 +50,15 @@ public class ItemButton : MonoBehaviour
     {
         if(DataController.GetInstance().GetGold() >= currentCost)
         {
+
             isPurchased = true;
             DataController.GetInstance().SubGold(currentCost);
-            //level++;
+            level++;
 
-            //UpdateItem();
+            UpdateItem();
             UpdateUI();
             DataController.GetInstance().SaveItemButton(this);
+            
         }
     }
 
@@ -70,20 +72,30 @@ public class ItemButton : MonoBehaviour
             }
             
             yield return new WaitForSeconds(1.0f);
+            
         }
 
         
     }
 
-    //public void UpdateItem()
-    //{
-        //goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow,level);
-       // currentCost = startCurrentCost * (int)Mathf.Pow(costPow,level);
-    //}
+    public void UpdateItem()
+    {
+        goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow,level);
+        currentCost = startCurrentCost * (int)Mathf.Pow(costPow,level);
+    }
 
     public void UpdateUI()
     {
         itemNameDisplayer.text = itemName;
-        itemDisplayer.text = "\nGold Per Sec: " + goldPerSec + "\nIsPurchased" + isPurchased;
+        itemDisplayer.text = "Gold Per Sec: " + goldPerSec;
+        if(isPurchased)
+        {
+            PurchaseDisplayer.text = "Purchased";
+        }
+        else
+        {
+            PurchaseDisplayer.text = "--";
+        }
     }
+    
 }
