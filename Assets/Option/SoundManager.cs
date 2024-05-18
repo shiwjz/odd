@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-  
     public AudioSource musicsource;
 
     public AudioSource btnsource;
@@ -14,14 +13,12 @@ public class SoundManager : MonoBehaviour
     {
         musicsource.volume = volume;
         PlayerPrefs.SetFloat("MusicVolume",musicsource.volume);
-        PlayerPrefs.Save();
     }
 
     public void SetButtonVolume(float volume)
     {
         btnsource.volume = volume;
         PlayerPrefs.SetFloat("SfxVolume", btnsource.volume);
-        PlayerPrefs.Save();
     }
     public void OnSfx()
     {
