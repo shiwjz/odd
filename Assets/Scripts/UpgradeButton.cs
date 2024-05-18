@@ -1,57 +1,107 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using System.Linq;
 
 public class UpgradeButton : MonoBehaviour
 {
-    public TMP_Text upgradeDisplayer;
+    private DataController dataController;
 
     public string upgradeName;
-
-    [HideInInspector]
-
+    public int level;
     public int goldByUpgrade;
-    public int startGoldByUpgrade = 1;
+    public int currentCost;
 
-    [HideInInspector]
+    public TMP_Text infoText;
 
-    public int currentCost = 1;
-    public int startCurrentCost = 1;
+    private string[] dataRows;
 
-    [HideInInspector]
-
-    public int level = 1;
-    public float upgradePow = 1.07f;
-    public float costPow = 3.14f;
-
-    void Start()
+    void Awake()
     {
-        DataController.GetInstance().LoadUpgradeButton(this);
+        dataController = DataController.GetInstance();
+        LoadGameData();
+        LoadUpgradeButton();
         UpdateUI();
     }
-    public void PurchaseUpgrade()
+
+    void LoadGameData()
     {
-        if(DataController.GetInstance().GetGold() >= currentCost)
+        TextAsset data = Resources.Load<TextAsset>("PlayerDB");
+
+        if (data != null)
         {
-            DataController.GetInstance().SubGold(currentCost);
-            level++;
-            DataController.GetInstance().AddGoldPerClick(goldByUpgrade);
-            UpdateUpgrade();
+            dataRows = data.text.Split('\n');
+
+            
+            if (dataRows.Length > 1)
+            {
+                dataRows = dataRows.Skip(1).ToArray();
+                UpdateUpgradeData();
+            }
+        }
+        else
+        {
+            Debug.LogError("Cannot find game data!");
+        }
+    }
+
+    public void OnClick()
+    {
+        int currentCurrency = dataController.GetGold();
+
+        if (currentCurrency >= currentCost)
+        {
+            dataController.AddGold(-currentCost);
+           
+            if (level < dataRows.Length-1)
+            {
+                level++;
+                UpdateUpgradeData();
+                dataController.SetGoldPerClick(goldByUpgrade);
+                SaveUpgradeButton();
+                
+            }
             UpdateUI();
-            DataController.GetInstance().SaveUpgradeBotton(this);
+        }
+    }
+
+    void UpdateUpgradeData()
+    {
+        string[] row = dataRows[level].Split(',');
+
+        if (!int.TryParse(row[0], out goldByUpgrade))
+        {
+            Debug.LogError("Failed to parse goldByUpgrade: " + row[0]);
         }
 
+        if (!int.TryParse(row[1], out currentCost))
+        {
+            Debug.LogError("Failed to parse currentCost: " + row[1]);
+        }
     }
-    public void UpdateUpgrade()
+    public void LoadUpgradeButton()
     {
-        goldByUpgrade = startGoldByUpgrade * (int)Mathf.Pow(upgradePow, level);
-        currentCost = startCurrentCost * (int)Mathf.Pow(costPow, level);
+        level = PlayerPrefs.GetInt(upgradeName + "_level", 1);
     }
+
+    public void SaveUpgradeButton()
+    {
+        PlayerPrefs.SetInt(upgradeName + "_level", level);
+    }
+
     public void UpdateUI()
     {
-        upgradeDisplayer.text = upgradeName + "\nCost: " + currentCost + "\nLevel: " + level + "\nNext New GoldPerClick: " + goldByUpgrade;
+        infoText.text = "Level: " + (level+1).ToString() + "\n" +
+                        "Price: " + currentCost.ToString() + "\n" +
+                        "Production: " + goldByUpgrade.ToString();
+
+        
+    }
+
+    public void ResetUpgradeButton()
+    {
+        level = 0;
+        LoadGameData();
+        UpdateUI();
     }
 }
-
