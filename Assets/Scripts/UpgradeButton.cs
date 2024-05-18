@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.IO;
 using System.Linq;
@@ -10,11 +13,24 @@ public class UpgradeButton : MonoBehaviour
     public string upgradeName;
     public int level;
     public int goldByUpgrade;
+    public int startGoldByUpgrade = 1;
     public int currentCost;
+    public int startCurrentCost = 1;
+
+    //public int level = 1;
+    public float upgradePow = 1.07f;
+    public float costPow = 3.14f;
 
     public TMP_Text infoText;
+    public TMP_Text upgradeDisplayer;
 
     private string[] dataRows;
+
+    void Start()
+    {
+        DataController.GetInstance().LoadUpgradeButton(this);
+        UpdateUI();
+    }
 
     void Awake()
     {
@@ -43,6 +59,20 @@ public class UpgradeButton : MonoBehaviour
         {
             Debug.LogError("Cannot find game data!");
         }
+    }
+
+    public void PurchaseUpgrade()
+    {
+        if (DataController.GetInstance().GetGold() >= currentCost)
+        {
+            DataController.GetInstance().SubGold(currentCost);
+            level++;
+            DataController.GetInstance().AddGoldPerClick(goldByUpgrade);
+            UpdateUpgrade();
+            UpdateUI();
+            DataController.GetInstance().SaveUpgradeBotton(this);
+        }
+
     }
 
     public void OnClick()
@@ -79,6 +109,13 @@ public class UpgradeButton : MonoBehaviour
             Debug.LogError("Failed to parse currentCost: " + row[1]);
         }
     }
+
+    public void UpdateUpgrade()
+    {
+        goldByUpgrade = startGoldByUpgrade * (int)Mathf.Pow(upgradePow, level);
+        currentCost = startCurrentCost * (int)Mathf.Pow(costPow, level);
+    }
+
     public void LoadUpgradeButton()
     {
         level = PlayerPrefs.GetInt(upgradeName + "_level", 1);
@@ -99,7 +136,7 @@ public class UpgradeButton : MonoBehaviour
                         "Price: " + currentCost.ToString() + "\n" +
                         "Production: " + goldByUpgrade.ToString();
 
-        
+        upgradeDisplayer.text = upgradeName + "\nCost: " + currentCost + "\nLevel: " + level + "\nNext New GoldPerClick: " + goldByUpgrade;
     }
 
     public void ResetUpgradeButton()

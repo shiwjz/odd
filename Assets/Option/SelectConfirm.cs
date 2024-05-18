@@ -7,11 +7,12 @@ public class SelectConfirm : MonoBehaviour
 
 {
     public AudioSource musicsource;
-    public AudioSource btsource;
+
+    public AudioSource btnsource;
     public void Confirm()
     {
-        PlayerPrefs.SetFloat("MusicVoulume", musicsource.volume);
-        PlayerPrefs.SetFloat("sfxVoulme", btsource.volume);
+        PlayerPrefs.SetFloat("MusicVolume", musicsource.volume);
+        PlayerPrefs.SetFloat("SfxVolume", btnsource.volume);
         SceneManager.LoadScene("Menu");
     }
 }
