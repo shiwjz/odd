@@ -1333,6 +1333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1279972998}
   - component: {fileID: 1279972999}
+  - component: {fileID: 1279973000}
   m_Layer: 5
   m_Name: SfxSlider
   m_TagString: Untagged
@@ -1425,6 +1426,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1279973000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279972997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7a09e56e78a244596df43d70efbd5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 1544471082}
+  AudioSlider: {fileID: 1279972999}
 --- !u!1 &1366077796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,6 +2042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1765051129}
   - component: {fileID: 1765051130}
+  - component: {fileID: 1765051131}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -2119,6 +2135,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1765051131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765051128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7a09e56e78a244596df43d70efbd5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 1723733596}
+  AudioSlider: {fileID: 1765051130}
 --- !u!1 &1778379299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,6 +2427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1986188385}
   - component: {fileID: 1986188386}
+  - component: {fileID: 1986188387}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -2429,6 +2460,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 886f1553301c75842a59b0bdddc429c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicsource: {fileID: 1723733596}
+  btnsource: {fileID: 1544471082}
+--- !u!114 &1986188387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986188384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388ce134a418c97459a43a1c99cf3691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicsource: {fileID: 1723733596}
