@@ -7,7 +7,7 @@ public class SelectExitShop : MonoBehaviour
 {
     public void Exit()
     {
-
-        SceneManager.LoadScene("SampleScene");
+        PlayerPrefs.SetInt("GoldPerSec", DataController.GetInstance().GetGoldPerSec());
+        SceneManager.LoadScene("Menu");
     }
 }
