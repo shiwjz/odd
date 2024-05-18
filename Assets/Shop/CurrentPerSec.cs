@@ -9,6 +9,6 @@ public class CurrentPerSec : MonoBehaviour
 
     void Update()
     {
-        CurrentPerSecDisplayer.text = "GoldPerSec :" + DataController.GetInstance().GetGoldPerSec();
+
     }
 }
