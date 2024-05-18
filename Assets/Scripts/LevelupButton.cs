@@ -1,11 +1,15 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class LevelupButton : MonoBehaviour
 {
     public string fileName = "PlayerDB";
-
+    public int lv;
+    public int price;
+    public int production_p;
+    public int i, j;
     private void Start()
     {
         TextAsset csvFile = Resources.Load(fileName) as TextAsset;
@@ -25,5 +29,15 @@ public class LevelupButton : MonoBehaviour
                 }
             }
         }
+
+        for(i=0; i<1000; i++)
+        {
+
+            string lv = value[0];
+
+
+
+        }
     }
 }
+*/

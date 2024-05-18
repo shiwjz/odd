@@ -1,9 +1,8 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ItemButton : MonoBehaviour
 {
@@ -76,3 +75,4 @@ public class ItemButton : MonoBehaviour
         itemDisplayer.text = itemName + "/nLevel: " + "/nCost: " + currentCost + "/nGold Per Sec: " + goldPerSec + "/nIsPurchased" + isPurchased;
     }
 }
+*/

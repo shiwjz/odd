@@ -1,93 +1,107 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using System.IO;
-using static UpgradeButton;
+using System.Linq;
 
 public class UpgradeButton : MonoBehaviour
 {
-    public TMP_Text upgradeDisplayer;
+    private DataController dataController;
 
     public string upgradeName;
-
-    [HideInInspector]
-
+    public int level;
     public int goldByUpgrade;
-    public int startGoldByUpgrade = 1;
-
-    [HideInInspector]
-
     public int currentCost;
-    public int startCurrentCost = 1;
-    public class PlayerData
+
+    public TMP_Text infoText;
+
+    private string[] dataRows;
+
+    void Awake()
     {
-        public int level;
-        public int price;
-        public int production_p;
+        dataController = DataController.GetInstance();
+        LoadGameData();
+        LoadUpgradeButton();
+        UpdateUI();
     }
 
-    public List<PlayerData> playerDataList = new List<PlayerData>();
-
-    void Start()
+    void LoadGameData()
     {
-        LoadPlayerDataFromCSV();
-    }
-
-    void LoadPlayerDataFromCSV()
-    {
-        TextAsset data = Resources.Load<TextAsset>("playerDB");
+        TextAsset data = Resources.Load<TextAsset>("PlayerDB");
 
         if (data != null)
         {
-            string[] rows = data.text.Split('\n');
+            dataRows = data.text.Split('\n');
 
-            for (int i = 1; i < rows.Length; i++)
+            
+            if (dataRows.Length > 1)
             {
-                string[] row = rows[i].Split(',');
-
-                PlayerData playerData = new PlayerData();
-                playerData.level = int.Parse(row[0]);
-                playerData.price = int.Parse(row[1]);
-                playerData.production_p = int.Parse(row[2]);
-
-                playerDataList.Add(playerData);
+                dataRows = dataRows.Skip(1).ToArray();
+                UpdateUpgradeData();
             }
         }
         else
         {
-            Debug.LogError("Cannot find file!");
+            Debug.LogError("Cannot find game data!");
         }
     }
 
-
-    [HideInInspector]
-
-    public int level = 1;
-
-
-    public void OnButtonClick()
+    public void OnClick()
     {
-        if(playerDataList.Count > 0 && DataController.GetInstance().GetGold()>=currentCost)
+        int currentCurrency = dataController.GetGold();
+
+        if (currentCurrency >= currentCost)
         {
-            DataController.GetInstance().SubGold(currentCost);
-
-            level = playerDataList[0].level;
-            currentCost = playerDataList[0].price;
-            goldByUpgrade = playerDataList[0].production_p;
-
-            playerDataList.RemoveAt(0);
-            
+            dataController.AddGold(-currentCost);
+           
+            if (level < dataRows.Length-1)
+            {
+                level++;
+                UpdateUpgradeData();
+                dataController.SetGoldPerClick(goldByUpgrade);
+                SaveUpgradeButton();
+                
+            }
             UpdateUI();
-            DataController.GetInstance().SaveUpgradeBotton(this);
-
         }
+    }
+
+    void UpdateUpgradeData()
+    {
+        string[] row = dataRows[level].Split(',');
+
+        if (!int.TryParse(row[0], out goldByUpgrade))
+        {
+            Debug.LogError("Failed to parse goldByUpgrade: " + row[0]);
+        }
+
+        if (!int.TryParse(row[1], out currentCost))
+        {
+            Debug.LogError("Failed to parse currentCost: " + row[1]);
+        }
+    }
+    public void LoadUpgradeButton()
+    {
+        level = PlayerPrefs.GetInt(upgradeName + "_level", 1);
+    }
+
+    public void SaveUpgradeButton()
+    {
+        PlayerPrefs.SetInt(upgradeName + "_level", level);
     }
 
     public void UpdateUI()
     {
-        upgradeDisplayer.text = upgradeName + "\nCost: " + currentCost + "\nLevel: " + level + "\nNext New GoldPerClick: " + goldByUpgrade;
+        infoText.text = "Level: " + (level+1).ToString() + "\n" +
+                        "Price: " + currentCost.ToString() + "\n" +
+                        "Production: " + goldByUpgrade.ToString();
+
+        
+    }
+
+    public void ResetUpgradeButton()
+    {
+        level = 0;
+        LoadGameData();
+        UpdateUI();
     }
 }
-
