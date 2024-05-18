@@ -82,11 +82,15 @@ public class UpgradeButton : MonoBehaviour
     public void LoadUpgradeButton()
     {
         level = PlayerPrefs.GetInt(upgradeName + "_level", 1);
+        goldByUpgrade = PlayerPrefs.GetInt(upgradeName + "_goldByUpgrade", 0);
+        currentCost = PlayerPrefs.GetInt(upgradeName + "_currentCost", 0);
     }
 
     public void SaveUpgradeButton()
     {
         PlayerPrefs.SetInt(upgradeName + "_level", level);
+        PlayerPrefs.SetInt(upgradeName + "_goldByUpgrade", goldByUpgrade);
+        PlayerPrefs.SetInt(upgradeName + "_currentCost", currentCost);
     }
 
     public void UpdateUI()

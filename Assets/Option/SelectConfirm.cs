@@ -6,8 +6,12 @@ using UnityEngine.SceneManagement;
 public class SelectConfirm : MonoBehaviour
 
 {
+    public AudioSource musicsource;
+    public AudioSource btsource;
     public void Confirm()
     {
-        SceneManager.LoadScene("SampleScene");
+        PlayerPrefs.SetFloat("MusicVoulume", musicsource.volume);
+        PlayerPrefs.SetFloat("sfxVoulme", btsource.volume);
+        SceneManager.LoadScene("Menu");
     }
 }
