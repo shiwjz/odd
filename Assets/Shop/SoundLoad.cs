@@ -10,7 +10,7 @@ public class SoundLoad : MonoBehaviour
 
     void Update()
     {
-        musicsource.volume = PlayerPrefs.GetFloat("MusicVolume");
-        btnsource.volume = PlayerPrefs.GetFloat("SfxVolume");
+        musicsource.volume = PlayerPrefs.GetFloat("MusicVolume",1);
+        btnsource.volume = PlayerPrefs.GetFloat("SfxVolume",1);
     }
 }

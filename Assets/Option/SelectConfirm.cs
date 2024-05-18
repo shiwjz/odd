@@ -13,6 +13,6 @@ public class SelectConfirm : MonoBehaviour
     {
         PlayerPrefs.SetFloat("MusicVolume", musicsource.volume);
         PlayerPrefs.SetFloat("SfxVolume", btnsource.volume);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Menu");
     }
 }

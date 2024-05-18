@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class ItemButton : MonoBehaviour
 {
+    public AudioSource btnsource;
 
     public TMP_Text itemDisplayer;
 
@@ -50,7 +49,7 @@ public class ItemButton : MonoBehaviour
     {
         if(DataController.GetInstance().GetGold() >= currentCost)
         {
-
+            btnsource.Play();
             isPurchased = true;
             DataController.GetInstance().SubGold(currentCost);
             level++;
@@ -87,10 +86,10 @@ public class ItemButton : MonoBehaviour
     public void UpdateUI()
     {
         itemNameDisplayer.text = itemName;
-        itemDisplayer.text = "Gold Per Sec: " + goldPerSec;
+        itemDisplayer.text = "Gold Per Sec: " + goldPerSec + "\nCurrentCost: " + currentCost;
         if(isPurchased)
         {
-            PurchaseDisplayer.text = "Purchased";
+            PurchaseDisplayer.text = "Lv." + level;
         }
         else
         {
