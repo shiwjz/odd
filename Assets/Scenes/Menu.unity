@@ -526,6 +526,7 @@ MonoBehaviour:
   goldDisplayer: {fileID: 1784203521}
   goldPerClickDisplayer: {fileID: 433627520}
   goldPerSecDisplayer: {fileID: 0}
+  dataController: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,8 +915,13 @@ MonoBehaviour:
   upgradeName: level
   level: 1
   goldByUpgrade: 0
+  startGoldByUpgrade: 1
   currentCost: 1
+  startCurrentCost: 1
+  upgradePow: 1.07
+  costPow: 3.14
   infoText: {fileID: 1794267265}
+  upgradeDisplayer: {fileID: 1784203521}
 --- !u!1 &1364327125
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,24 +1,30 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ItemButton : MonoBehaviour
 {
+    public AudioSource btnsource;
+
     public TMP_Text itemDisplayer;
-    
+
+    public TMP_Text PurchaseDisplayer;
+
+
+    public TMP_Text itemNameDisplayer;
+
     public string itemName;
 
     public int level;
 
-    [HideInInspector]
+    //[HideInInspector]
 
     public int currentCost;
 
     public int startCurrentCost = 1;
 
-    [HideInInspector]
+    //[HideInInspector]
 
     public int goldPerSec;
 
@@ -26,9 +32,13 @@ public class ItemButton : MonoBehaviour
 
     public float costPow = 3.14f;
 
+    //[HideInInspector]
+
     public float upgradePow = 1.07f;
-    [HideInInspector]
+    
     public bool isPurchased = false;
+
+
     void Start()
     {
         DataController.GetInstance().LoadItemButton(this);
@@ -39,6 +49,7 @@ public class ItemButton : MonoBehaviour
     {
         if(DataController.GetInstance().GetGold() >= currentCost)
         {
+            btnsource.Play();
             isPurchased = true;
             DataController.GetInstance().SubGold(currentCost);
             level++;
@@ -46,6 +57,7 @@ public class ItemButton : MonoBehaviour
             UpdateItem();
             UpdateUI();
             DataController.GetInstance().SaveItemButton(this);
+            
         }
     }
 
@@ -59,6 +71,7 @@ public class ItemButton : MonoBehaviour
             }
             
             yield return new WaitForSeconds(1.0f);
+            
         }
 
         
@@ -72,7 +85,16 @@ public class ItemButton : MonoBehaviour
 
     public void UpdateUI()
     {
-        itemDisplayer.text = itemName + "/nLevel: " + "/nCost: " + currentCost + "/nGold Per Sec: " + goldPerSec + "/nIsPurchased" + isPurchased;
+        itemNameDisplayer.text = itemName;
+        itemDisplayer.text = "Gold Per Sec: " + goldPerSec + "\nCurrentCost: " + currentCost;
+        if(isPurchased)
+        {
+            PurchaseDisplayer.text = "Lv." + level;
+        }
+        else
+        {
+            PurchaseDisplayer.text = "--";
+        }
     }
+    
 }
-*/
