@@ -25,6 +25,8 @@ public class DataController : MonoBehaviour
 
     void Awake()
     {
+
+       
         m_gold = PlayerPrefs.GetInt("Gold");
         m_goldPerClick = PlayerPrefs.GetInt("GoldPerClick", 1);
         m_goldPerSec = PlayerPrefs.GetInt("GoldPerSec", 0);
@@ -70,9 +72,8 @@ public class DataController : MonoBehaviour
         string key = upgradeButton.upgradeName;
 
         upgradeButton.level = PlayerPrefs.GetInt(key + "_level", 1);
-        upgradeButton.goldByUpgrade = PlayerPrefs.GetInt(key + "_goldByUpgrade",
-        upgradeButton.startGoldByUpgrade);
-        upgradeButton.currentCost = PlayerPrefs.GetInt(key + "_cost", upgradeButton.startCurrentCost);
+        upgradeButton.goldByUpgrade = PlayerPrefs.GetInt(key + "_goldByUpgrade", 1);
+        
     }
 
     public void SaveUpgradeBotton(UpgradeButton upgradeButton)
@@ -135,23 +136,26 @@ public class DataController : MonoBehaviour
         PlayerPrefs.DeleteAll();
         m_gold = 0;
         m_goldPerClick = 1;
-
+        m_goldPerSec = 0;
         foreach (var upgradeButton in FindObjectsOfType<UpgradeButton>())
         {
             upgradeButton.ResetUpgradeButton();
+            PlayerPrefs.SetInt(upgradeButton.upgradeName + "_level", upgradeButton.level);
+            PlayerPrefs.SetInt(upgradeButton.upgradeName + "_goldByUpgrade", upgradeButton.goldByUpgrade);
+            PlayerPrefs.SetInt(upgradeButton.upgradeName + "_currentCost", upgradeButton.currentCost);
         }
     }
 
     public void UpdateAllUpgradeButtons()
     {
-        
+
         foreach (var upgradeButton in FindObjectsOfType<UpgradeButton>())
         {
             upgradeButton.UpdateUI();
         }
     }
 
-    
+
     public void SetGoldPerClick(int newGoldPerClick)
     {
         m_goldPerClick = newGoldPerClick;

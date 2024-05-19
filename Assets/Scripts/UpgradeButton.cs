@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using System.IO;
 using System.Linq;
@@ -13,30 +10,26 @@ public class UpgradeButton : MonoBehaviour
     public string upgradeName;
     public int level;
     public int goldByUpgrade;
-    public int startGoldByUpgrade = 1;
     public int currentCost;
-    public int startCurrentCost = 1;
 
-    //public int level = 1;
-    public float upgradePow = 1.07f;
-    public float costPow = 3.14f;
-
-    public TMP_Text infoText;
-    public TMP_Text upgradeDisplayer;
+    public TMP_Text LevelText;
+    public TMP_Text PriceText;
 
     private string[] dataRows;
-
-    void Start()
-    {
-        DataController.GetInstance().LoadUpgradeButton(this);
-        UpdateUI();
-    }
 
     void Awake()
     {
         dataController = DataController.GetInstance();
         LoadGameData();
         LoadUpgradeButton();
+
+        if (level == 0 && goldByUpgrade == 0 && currentCost == 0)
+        {
+            
+            level = 1;
+            LoadGameData();
+        }
+
         UpdateUI();
     }
 
@@ -48,7 +41,7 @@ public class UpgradeButton : MonoBehaviour
         {
             dataRows = data.text.Split('\n');
 
-            
+
             if (dataRows.Length > 1)
             {
                 dataRows = dataRows.Skip(1).ToArray();
@@ -61,20 +54,6 @@ public class UpgradeButton : MonoBehaviour
         }
     }
 
-    public void PurchaseUpgrade()
-    {
-        if (DataController.GetInstance().GetGold() >= currentCost)
-        {
-            DataController.GetInstance().SubGold(currentCost);
-            level++;
-            DataController.GetInstance().AddGoldPerClick(goldByUpgrade);
-            UpdateUpgrade();
-            UpdateUI();
-            DataController.GetInstance().SaveUpgradeBotton(this);
-        }
-
-    }
-
     public void OnClick()
     {
         int currentCurrency = dataController.GetGold();
@@ -82,14 +61,14 @@ public class UpgradeButton : MonoBehaviour
         if (currentCurrency >= currentCost)
         {
             dataController.AddGold(-currentCost);
-           
-            if (level < dataRows.Length-1)
+
+            if (level < dataRows.Length - 1)
             {
                 level++;
                 UpdateUpgradeData();
                 dataController.SetGoldPerClick(goldByUpgrade);
                 SaveUpgradeButton();
-                
+
             }
             UpdateUI();
         }
@@ -109,31 +88,28 @@ public class UpgradeButton : MonoBehaviour
             Debug.LogError("Failed to parse currentCost: " + row[1]);
         }
     }
-
-    public void UpdateUpgrade()
-    {
-        goldByUpgrade = startGoldByUpgrade * (int)Mathf.Pow(upgradePow, level);
-        currentCost = startCurrentCost * (int)Mathf.Pow(costPow, level);
-    }
-
     public void LoadUpgradeButton()
     {
         level = PlayerPrefs.GetInt(upgradeName + "_level", 1);
+        goldByUpgrade = PlayerPrefs.GetInt(upgradeName + "_goldByUpgrade", 0);
+        currentCost = PlayerPrefs.GetInt(upgradeName + "_currentCost", 0);
     }
 
     public void SaveUpgradeButton()
     {
         PlayerPrefs.SetInt(upgradeName + "_level", level);
+        PlayerPrefs.SetInt(upgradeName + "_goldByUpgrade", goldByUpgrade);
+        PlayerPrefs.SetInt(upgradeName + "_currentCost", currentCost);
     }
 
     public void UpdateUI()
     {
-        infoText.text = "Level: " + (level+1).ToString() + "\n" +
-                        "Price: " + currentCost.ToString() + "\n" +
-                        "Production: " + goldByUpgrade.ToString();
+        LevelText.text = "레벨 : " + (level + 1).ToString();
+        PriceText.text = "필요 인기도 : " + currentCost.ToString() + "\n" + "Level UP";
 
-        upgradeDisplayer.text = upgradeName + "\nCost: " + currentCost + "\nLevel: " + level + "\nNext New GoldPerClick: " + goldByUpgrade;
     }
+
+    
 
     public void ResetUpgradeButton()
     {
