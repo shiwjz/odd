@@ -314,7 +314,8 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: fa24494d1ca1e4492be275c85487a77b, type: 3}
   clickedSprite: {fileID: 21300000, guid: dec303f2b3846405c83c293f89368e72, type: 3}
   prefab: {fileID: 5348948914059557887, guid: e4355e11f512645eab8a67f82688f4a0, type: 3}
-  canvasTransform: {fileID: 500843147}
+  canvasTransform: {fileID: 203943800}
+  speed: 8
 --- !u!114 &203943802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +900,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1291,8 +1292,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -185, y: 767}
-  m_SizeDelta: {x: 392.1712, y: 74.2966}
+  m_AnchoredPosition: {x: -109.0152, y: 769.71375}
+  m_SizeDelta: {x: 544.1408, y: 79.7241}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &697882212
 MonoBehaviour:
@@ -2396,8 +2397,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.47154993, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.5805974, y: -0.000010014}
-  m_SizeDelta: {x: 381.01, y: 74.297}
+  m_AnchoredPosition: {x: 7.7405, y: 2.7136}
+  m_SizeDelta: {x: 528.66, y: 74.297}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1817619668
 GameObject:

@@ -9,17 +9,59 @@ public class ClickButton : MonoBehaviour
     [SerializeField] private Sprite clickedSprite; // 클릭 시 변경될 스프라이트 (이미지2)
     [SerializeField] private GameObject prefab; // 생성할 프리팹
     [SerializeField] private Transform canvasTransform; // 캔버스의 Transform
+    [SerializeField] private float speed = 8;
+    private Vector3 mousePos;
 
     void Start()
     {
         buttonImage.sprite = defaultSprite; // 초기 스프라이트 설정
     }
 
+    private void Update()
+    {
+        Get_Mose();
+        Check_Transforms();
+    }
+
+    private void Get_Mose()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+       
+        }
+    }
+
+    private void Function_Instantiate()
+    {
+        Vector2 clickPosition = Input.mousePosition;
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasTransform as RectTransform, clickPosition, null, out localPoint);
+        GameObject Inst = Instantiate(prefab, canvasTransform);
+        RectTransform rectTransform = Inst.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = localPoint;
+    }
+
+    private void Check_Transforms()
+    {
+        for (int i = 0; i < canvasTransform.childCount; i++)
+        {
+            RectTransform rect = canvasTransform.GetChild(i).GetComponent<RectTransform>();
+            if(rect.anchoredPosition.y < -(Screen.height + rect.rect.height)/2)
+            {
+                Destroy(rect.gameObject);
+                continue;
+            }
+            rect.anchoredPosition += Vector2.down * speed;
+
+         }
+    }
+
+
     public void OnClick()
     {
         StartCoroutine(ChangeSpriteToClicked());
         AddGold();
-        DropPrefabAtClickPosition();
+        
     }
 
     private IEnumerator ChangeSpriteToClicked()
@@ -33,21 +75,10 @@ public class ClickButton : MonoBehaviour
     {
         int goldPerClick = DataController.GetInstance().GetGoldPerClick();
         DataController.GetInstance().AddGold(goldPerClick);
-        // 여기에 추가적인 클릭 로직을 구현할 수 있습니다.
+        Function_Instantiate(); // 돈이 추가될 때 이미지를 생성합니다.
     }
 
-    private void DropPrefabAtClickPosition()
-    {
-        // 'Screen Space - Overlay' 모드에서는 카메라 변환 없이 마우스 위치를 사용
-        Vector3 clickPosition = Input.mousePosition;
-        clickPosition.z = 0; // 2D 환경에서 z축은 0으로 설정
 
-        // 프리팹을 클릭한 위치에 생성
-        GameObject instance = Instantiate(prefab, clickPosition, Quaternion.identity);
-        instance.transform.SetParent(canvasTransform, false); // 캔버스를 부모로 설정
-        instance.AddComponent<Rigidbody2D>(); // Rigidbody2D 컴포넌트 추가
-        Destroy(instance, 2f); // 2초 후에 프리팹 파괴
-    }
     public void OnButtonClick()
     {
         Debug.Log("버튼이 클릭되었습니다 ");
