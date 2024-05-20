@@ -28,6 +28,7 @@ public class UpgradeButton : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         DataController.GetInstance().LoadUpgradeButton(this);
         UpdateUI();
     }

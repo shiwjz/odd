@@ -424,111 +424,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &163913460
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1085261394}
-    m_Modifications:
-    - target: {fileID: 730371576810796114, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_Name
-      value: Friend (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1171.1946
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 599.4803
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2598169511877949128, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: itemName
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2598169511877949128, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-      propertyPath: btnsource
-      value: 
-      objectReference: {fileID: 110627383}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
 --- !u!1 &174716417
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +510,10 @@ PrefabInstance:
     - target: {fileID: 730371576810796114, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Name
       value: Friend (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958041181679266933, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+      propertyPath: FileName
+      value: Friend5DB
       objectReference: {fileID: 0}
     - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Pivot.x
@@ -720,6 +619,10 @@ PrefabInstance:
     - target: {fileID: 730371576810796114, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Name
       value: Friend (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958041181679266933, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+      propertyPath: FileName
+      value: Friend4DB
       objectReference: {fileID: 0}
     - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Pivot.x
@@ -1067,7 +970,7 @@ GameObject:
   - component: {fileID: 467849403}
   - component: {fileID: 467849404}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: SoundLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,6 +1016,10 @@ PrefabInstance:
     - target: {fileID: 730371576810796114, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Name
       value: Friend (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958041181679266933, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+      propertyPath: FileName
+      value: Friend2DB
       objectReference: {fileID: 0}
     - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Pivot.x
@@ -1307,7 +1214,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 174716418}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6053234
+  m_Size: 0.7287873
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1366,6 +1273,10 @@ PrefabInstance:
     - target: {fileID: 730371576810796114, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Name
       value: Friend (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958041181679266933, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+      propertyPath: FileName
+      value: Friend3DB
       objectReference: {fileID: 0}
     - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Pivot.x
@@ -1507,13 +1418,12 @@ RectTransform:
   - {fileID: 507472650}
   - {fileID: 1713462250}
   - {fileID: 1960583516}
-  - {fileID: 1524108208}
   m_Father: {fileID: 1393259216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 8.5, y: -792.90814}
-  m_SizeDelta: {x: 16.95874, y: 4018.14}
+  m_AnchoredPosition: {x: 0, y: -452.5852}
+  m_SizeDelta: {x: 16.9587, y: 3337.494}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085261395
 MonoBehaviour:
@@ -2184,11 +2094,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &1524108208 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
-  m_PrefabInstance: {fileID: 163913460}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1624584950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,7 +2130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -185.40002, y: -200.13489}
+  m_AnchoredPosition: {x: -185.42, y: -155}
   m_SizeDelta: {x: 220, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624584952
@@ -2275,6 +2180,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1624584955}
         m_TargetAssemblyTypeName: SelectExitShop, Assembly-CSharp
         m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 467849404}
+        m_TargetAssemblyTypeName: SoundLoad, Assembly-CSharp
+        m_MethodName: SoundSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2397,10 +2314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1400, y: 3200}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2559,6 +2476,10 @@ PrefabInstance:
     - target: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598169511877949128, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+      propertyPath: level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2598169511877949128, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: itemName

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3264126309901081482}
   - component: {fileID: 2103801564891865937}
   - component: {fileID: 2598169511877949128}
+  - component: {fileID: 1958041181679266933}
   m_Layer: 5
   m_Name: Friend
   m_TagString: Untagged
@@ -99,12 +100,28 @@ MonoBehaviour:
   itemName: name
   level: 0
   currentCost: 0
-  startCurrentCost: 5
+  startCurrentCost: 0
   goldPerSec: 0
-  startGoldPerSec: 20
+  startGoldPerSec: 0
   costPow: 3.14
   upgradePow: 1.07
   isPurchased: 0
+--- !u!114 &1958041181679266933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730371576810796114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8cb4b8a5673a5d488156bbc2ff341ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  currentCost: 0
+  goldPerSec: 0
+  FileName: Friend1DB
 --- !u!1 &1387009272301385062
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class ResetButton : MonoBehaviour
 
     public void OnClick()
     {
-        dataController.ResetData();
+       // dataController.ResetData();
         dataController.UpdateAllUpgradeButtons();  
     }
 }

@@ -19,10 +19,12 @@ public class DataController : MonoBehaviour
         return instance;
     }
     private ItemButton[] ItemButtons;
+
     private int m_gold = 0;
     private int m_goldPerClick = 1;
     private int m_goldPerSec = 0;
 
+    
     void Awake()
     {
         m_gold = PlayerPrefs.GetInt("Gold");
@@ -130,17 +132,17 @@ public class DataController : MonoBehaviour
         return goldPerSec;
     }
 
-    public void ResetData()
-    {
-        PlayerPrefs.DeleteAll();
-        m_gold = 0;
-        m_goldPerClick = 1;
+    //public void ResetData()
+    //{
+    //    PlayerPrefs.DeleteAll();
+    //    m_gold = 0;
+    //    m_goldPerClick = 1;
 
-        foreach (var upgradeButton in FindObjectsOfType<UpgradeButton>())
-        {
-            upgradeButton.ResetUpgradeButton();
-        }
-    }
+    //    foreach (var upgradeButton in FindObjectsOfType<UpgradeButton>())
+    //    {
+    //        upgradeButton.ResetUpgradeButton();
+    //    }
+    //}
 
     public void UpdateAllUpgradeButtons()
     {

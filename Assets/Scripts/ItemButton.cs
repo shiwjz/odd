@@ -38,9 +38,12 @@ public class ItemButton : MonoBehaviour
     
     public bool isPurchased = false;
 
+    private ItemData itemData;
+
 
     void Start()
     {
+        itemData = GetComponent<ItemData>();
         DataController.GetInstance().LoadItemButton(this);
         StartCoroutine("AddGoldLoop");
         UpdateUI();
@@ -79,8 +82,10 @@ public class ItemButton : MonoBehaviour
 
     public void UpdateItem()
     {
-        goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow,level);
-        currentCost = startCurrentCost * (int)Mathf.Pow(costPow,level);
+        goldPerSec = itemData.goldPerSec;
+        currentCost = itemData.currentCost;
+        //goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow,level);
+        //currentCost = startCurrentCost * (int)Mathf.Pow(costPow,level);
     }
 
     public void UpdateUI()

@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SelectConfirm : MonoBehaviour
-
+public class SoundLoad : MonoBehaviour
 {
     public AudioSource musicsource;
 
     public AudioSource btnsource;
-    public void Confirm()
+
+    private void Awake()
+    {
+        musicsource.volume = PlayerPrefs.GetFloat("MusicVolume",1);
+        btnsource.volume = PlayerPrefs.GetFloat("SfxVolume",1);
+    }
+
+    public void SoundSave()
     {
         PlayerPrefs.SetFloat("MusicVolume", musicsource.volume);
         PlayerPrefs.SetFloat("SfxVolume", btnsource.volume);
-        SceneManager.LoadScene("Menu");
     }
 }
