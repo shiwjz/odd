@@ -14,6 +14,6 @@ public class ResetButton : MonoBehaviour
     public void OnClick()
     {
         dataController.ResetData();
-        dataController.UpdateAllUpgradeButtons();  
+        dataController.UpdateAllUpgradeButtons();
     }
 }

@@ -35,19 +35,20 @@ public class ItemButton : MonoBehaviour
     //[HideInInspector]
 
     public float upgradePow = 1.07f;
-    
+
     public bool isPurchased = false;
 
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         DataController.GetInstance().LoadItemButton(this);
         StartCoroutine("AddGoldLoop");
         UpdateUI();
     }
     public void PurchaseItem()
     {
-        if(DataController.GetInstance().GetGold() >= currentCost)
+        if (DataController.GetInstance().GetGold() >= currentCost)
         {
             btnsource.Play();
             isPurchased = true;
@@ -57,37 +58,37 @@ public class ItemButton : MonoBehaviour
             UpdateItem();
             UpdateUI();
             DataController.GetInstance().SaveItemButton(this);
-            
+
         }
     }
 
     IEnumerator AddGoldLoop()
     {
-        while(true)
+        while (true)
         {
-            if(isPurchased)
+            if (isPurchased)
             {
                 DataController.GetInstance().AddGold(goldPerSec);
             }
-            
+
             yield return new WaitForSeconds(1.0f);
-            
+
         }
 
-        
+
     }
 
     public void UpdateItem()
     {
-        goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow,level);
-        currentCost = startCurrentCost * (int)Mathf.Pow(costPow,level);
+        goldPerSec = goldPerSec + startGoldPerSec * (int)Mathf.Pow(upgradePow, level);
+        currentCost = startCurrentCost * (int)Mathf.Pow(costPow, level);
     }
 
     public void UpdateUI()
     {
         itemNameDisplayer.text = itemName;
         itemDisplayer.text = "Gold Per Sec: " + goldPerSec + "\nCurrentCost: " + currentCost;
-        if(isPurchased)
+        if (isPurchased)
         {
             PurchaseDisplayer.text = "Lv." + level;
         }
@@ -96,5 +97,5 @@ public class ItemButton : MonoBehaviour
             PurchaseDisplayer.text = "--";
         }
     }
-    
+
 }
