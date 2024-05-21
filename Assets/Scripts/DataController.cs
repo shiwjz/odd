@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DataController : MonoBehaviour
 {
+    
 
     private static DataController instance;
     public static DataController GetInstance()
@@ -28,6 +29,7 @@ public class DataController : MonoBehaviour
     
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         m_gold = PlayerPrefs.GetInt("Gold");
         m_goldPerClick = PlayerPrefs.GetInt("GoldPerClick", 1);
         m_goldPerSec = PlayerPrefs.GetInt("GoldPerSec", 0);
@@ -124,6 +126,41 @@ public class DataController : MonoBehaviour
         }
     }
 
+    public void LoadGiftButton(GiftButton giftButton)
+    {
+        string key = giftButton.itemName;
+
+        //giftButton.level = PlayerPrefs.GetInt(key + "_level");
+        giftButton.currentCost = PlayerPrefs.GetInt(key + "_cost", giftButton.currentCost);
+
+        //giftButton.goldPerSec = PlayerPrefs.GetInt(key + "_goldPerSec");
+        if (PlayerPrefs.GetInt(key + "_isPurchased") == 1)
+        {
+            giftButton.isPurchased = true;
+        }
+        else
+        {
+            giftButton.isPurchased = false;
+        }
+    }
+    public void SaveGiftButton(GiftButton giftButton)
+    {
+        string key = giftButton.itemName;
+        //PlayerPrefs.SetInt(key + "_level", itemButton.level);
+        PlayerPrefs.SetInt(key + "_cost", giftButton.currentCost);
+        //PlayerPrefs.SetInt(key + "_goldPerSec", itemButton.goldPerSec);
+
+        if (giftButton.isPurchased == true)
+        {
+            PlayerPrefs.SetInt(key + "_isPurchased", 1);
+
+        }
+        else
+        {
+            PlayerPrefs.SetInt(key + "_isPurchased", 0);
+        }
+    }
+
     public int GetGoldPerSec()
     {
         int goldPerSec = 0;
@@ -133,18 +170,17 @@ public class DataController : MonoBehaviour
         }
         return goldPerSec;
     }
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteAll();
+        m_gold = 0;
+        m_goldPerClick = 1;
 
-    //public void ResetData()
-    //{
-    //    PlayerPrefs.DeleteAll();
-    //    m_gold = 0;
-    //    m_goldPerClick = 1;
-
-    //    foreach (var upgradeButton in FindObjectsOfType<UpgradeButton>())
-    //    {
-    //        upgradeButton.ResetUpgradeButton();
-    //    }
-    //}
+        foreach (var upgradeButton in FindObjectsOfType<UpgradeButton>())
+        {
+            upgradeButton.ResetUpgradeButton();
+        }
+    }
 
     public void UpdateAllUpgradeButtons()
     {

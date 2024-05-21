@@ -52,7 +52,13 @@ public class ItemButton : MonoBehaviour
 
     Image PopupImage;
 
-    private TMP_Text PopupText;
+    TMP_Text TitleText;
+
+    TMP_Text GameContentText;
+
+    private TMP_Text DetailText;
+
+    public GiftButton GiftData;
 
     void Awake()
     {
@@ -123,6 +129,7 @@ public class ItemButton : MonoBehaviour
             isPurchased = true;
             level++;
 
+            GiftData.GetComponent<GiftButton>().UpdateUI();
             DataController.GetInstance().SubGold(currentCost);
             UpdateItemData();
             UpdateUI();
@@ -154,10 +161,13 @@ public class ItemButton : MonoBehaviour
         {
             PopupPanel = GameObject.Find("Canvas").transform.Find("Popup").gameObject;
             PopupImage = PopupPanel.transform.Find("Image").GetComponent<Image>();
-            PopupText = PopupPanel.transform.Find("Text").GetComponent<TMP_Text>();
+            DetailText = PopupPanel.transform.Find("DetailText").GetComponent<TMP_Text>();
+            TitleText = PopupPanel.transform.Find("TitleText").GetComponent<TMP_Text>();
+            GameContentText = PopupPanel.transform.Find("GameContentText").GetComponent<TMP_Text>();
 
             PopupPanel.SetActive(true);
             PopupImage.sprite = Profile;
+            TitleText.text = "New Friend!";
         }
     }
 }

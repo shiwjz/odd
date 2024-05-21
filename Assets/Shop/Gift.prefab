@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2490935430973403359}
   - component: {fileID: 3264126309901081482}
   - component: {fileID: 2103801564891865937}
-  - component: {fileID: 2598169511877949128}
   m_Layer: 5
   m_Name: Gift
   m_TagString: Untagged
@@ -80,31 +79,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2598169511877949128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730371576810796114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec084aaf7b90f4cb0989b4990e7e6f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnsource: {fileID: 0}
-  itemDisplayer: {fileID: 126180549268567565}
-  PurchaseDisplayer: {fileID: 3946268063548605249}
-  itemNameDisplayer: {fileID: 6633538844034663211}
-  itemName: name
-  level: 0
-  currentCost: 0
-  startCurrentCost: 0
-  goldPerSec: 0
-  startGoldPerSec: 0
-  isPurchased: 0
-  FileName: 
-  Profile: {fileID: 0}
 --- !u!1 &1387009272301385062
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +334,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2598169511877949128}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ItemButton, Assembly-CSharp
         m_MethodName: PurchaseItem
         m_Mode: 1
