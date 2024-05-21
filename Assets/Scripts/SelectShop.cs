@@ -7,6 +7,7 @@ public class SelectShop : MonoBehaviour
 {
     public void IntoShop()
     {
+        PlayerPrefs.DeleteAll();
         GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(true);
     }
 }

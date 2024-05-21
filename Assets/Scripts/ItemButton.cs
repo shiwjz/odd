@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class ItemButton : MonoBehaviour
 {
@@ -43,6 +45,14 @@ public class ItemButton : MonoBehaviour
     public string FileName;
 
     private string[] dataRows;
+
+    public Sprite Profile;
+
+    private GameObject PopupPanel;
+
+    Image PopupImage;
+
+    private TMP_Text PopupText;
 
     void Awake()
     {
@@ -109,6 +119,7 @@ public class ItemButton : MonoBehaviour
         if(DataController.GetInstance().GetGold() >= currentCost)
         {
             btnsource.Play();
+            FriendPopup();
             isPurchased = true;
             level++;
 
@@ -136,5 +147,17 @@ public class ItemButton : MonoBehaviour
         PurchaseDisplayer.text = "Cost: " + currentCost;
 
     }
-    
+
+    public void FriendPopup()
+    {
+        if (!isPurchased)
+        {
+            PopupPanel = GameObject.Find("Canvas").transform.Find("Popup").gameObject;
+            PopupImage = PopupPanel.transform.Find("Image").GetComponent<Image>();
+            PopupText = PopupPanel.transform.Find("Text").GetComponent<TMP_Text>();
+
+            PopupPanel.SetActive(true);
+            PopupImage.sprite = Profile;
+        }
+    }
 }

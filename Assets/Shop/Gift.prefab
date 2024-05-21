@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2103801564891865937}
   - component: {fileID: 2598169511877949128}
   m_Layer: 5
-  m_Name: Friend 1
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16509432, g: 0.462045, b: 1, a: 0.80784315}
+  m_Color: {r: 1, g: 0.68052226, b: 0.16470587, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -104,6 +104,7 @@ MonoBehaviour:
   startGoldPerSec: 0
   isPurchased: 0
   FileName: 
+  Profile: {fileID: 0}
 --- !u!1 &1387009272301385062
 GameObject:
   m_ObjectHideFlags: 0
