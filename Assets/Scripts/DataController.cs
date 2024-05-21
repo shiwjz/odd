@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DataController : MonoBehaviour
 {
+
     private static DataController instance;
     public static DataController GetInstance()
     {
@@ -32,6 +33,7 @@ public class DataController : MonoBehaviour
         m_goldPerSec = PlayerPrefs.GetInt("GoldPerSec", 0);
         ItemButtons = FindObjectsOfType<ItemButton>();
     }
+
 
     public void SetGold(int newGold)
     {

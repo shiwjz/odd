@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2103801564891865937}
   - component: {fileID: 2598169511877949128}
   m_Layer: 5
-  m_Name: Friend
+  m_Name: Friend 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

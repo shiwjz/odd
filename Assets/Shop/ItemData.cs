@@ -7,7 +7,8 @@ using System.Linq;
 
 public class ItemData : MonoBehaviour
 {
-    public int level = 0;
+
+    public int level;
 
     //[HideInInspector]
 
@@ -25,9 +26,11 @@ public class ItemData : MonoBehaviour
     private void Awake()
     {
         ItemButton = GetComponent<ItemButton>();
-        level = ItemButton.level;
+        level = PlayerPrefs.GetInt(ItemButton.itemName + "_level");
         LoadGameData();
+        UpdateItemData();
     }
+
     void LoadGameData()
     {
         TextAsset data = Resources.Load<TextAsset>(FileName);
@@ -35,13 +38,7 @@ public class ItemData : MonoBehaviour
         if (data != null)
         {
             dataRows = data.text.Split('\n');
-
-
-            if (dataRows.Length > 1)
-            {
-                dataRows = dataRows.Skip(1).ToArray();
-                UpdateItemData();
-            }
+            UpdateItemData();
         }
         else
         {
@@ -49,18 +46,28 @@ public class ItemData : MonoBehaviour
         }
     }
 
-    void UpdateItemData()
+    public void UpdateItemData()
     {
         string[] row = dataRows[level].Split(',');
+        string[] nextrow = dataRows[level+1].Split(',');
 
         if (!int.TryParse(row[2], out goldPerSec))
         {
-            Debug.LogError("Failed to parse goldPerSec: " + row[0]);
+            goldPerSec = 0;
+        }
+        else
+        {
+            goldPerSec = int.Parse(row[2]);
         }
 
-        if (!int.TryParse(row[1], out currentCost))
+        if (!int.TryParse(nextrow[1], out currentCost))
         {
             Debug.LogError("Failed to parse currentCost: " + row[1]);
         }
+        else
+        {
+            currentCost = int.Parse(nextrow[1]);
+        }
+
     }
 }
