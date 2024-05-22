@@ -772,7 +772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &189820126
 RectTransform:
   m_ObjectHideFlags: 0
@@ -898,6 +898,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79848c22dfdab4685a981126b9e477f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  canvasTransform: {fileID: 0}
+  speed: 8
+  buttonImage: {fileID: 0}
+  image1: {fileID: 0}
+  image2: {fileID: 0}
 --- !u!114 &203943802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,6 +1772,7 @@ GameObject:
   - component: {fileID: 500843145}
   - component: {fileID: 500843144}
   - component: {fileID: 500843148}
+  - component: {fileID: 500843149}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1878,8 +1885,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldDisplayer: {fileID: 1784203521}
   goldPerClickDisplayer: {fileID: 433627520}
-  goldPerSecDisplayer: {fileID: 0}
-  dataController: {fileID: 0}
+  goldPerSecDisplayer: {fileID: 1635505894}
+  dataController: {fileID: 1703912939}
+--- !u!114 &500843149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500843143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02720adce678c9e40ada0fdd01ec0ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,8 +2181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ce134a418c97459a43a1c99cf3691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicsource: {fileID: 1860111934}
-  btnsource: {fileID: 1280202826}
 --- !u!4 &546833095
 Transform:
   m_ObjectHideFlags: 0
@@ -3004,13 +3021,9 @@ MonoBehaviour:
   upgradeName: level
   level: 1
   goldByUpgrade: 0
-  startGoldByUpgrade: 1
   currentCost: 1
-  startCurrentCost: 1
-  upgradePow: 1.07
-  costPow: 3.14
-  infoText: {fileID: 1794267265}
-  upgradeDisplayer: {fileID: 1784203521}
+  LevelText: {fileID: 0}
+  PriceText: {fileID: 0}
 --- !u!114 &795947636 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6633538844034663211, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
