@@ -18,6 +18,8 @@ public class ItemButton : MonoBehaviour
 
     public TMP_Text itemNameDisplayer;
 
+    public Image ProfileDisplayer;
+
     public string itemName;
 
     public int level;
@@ -47,6 +49,8 @@ public class ItemButton : MonoBehaviour
     private string[] dataRows;
 
     public Sprite Profile;
+
+    public Sprite AfterProflie;
 
     private GameObject PopupPanel;
 
@@ -152,6 +156,10 @@ public class ItemButton : MonoBehaviour
         itemNameDisplayer.text = itemName;
         itemDisplayer.text = "Gold Per Sec: " + goldPerSec + "\nLv: " + level;
         PurchaseDisplayer.text = "Cost: " + currentCost;
+        if(GiftData.isPurchased)
+        {
+            ProfileDisplayer.sprite = AfterProflie;
+        }
 
     }
 
