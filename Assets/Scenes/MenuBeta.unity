@@ -232,6 +232,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27b1e00183fd7944489338c79086b104, type: 3}
+--- !u!114 &21419885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+  m_PrefabInstance: {fileID: 587616459}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &31649252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -363,7 +374,7 @@ PrefabInstance:
     - target: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f4ab003649c51a74f9b4613639f9352b, type: 3}
+      objectReference: {fileID: 21300000, guid: de5a508f635b94e1cae63ce3bc1c06b5, type: 3}
     - target: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -472,6 +483,7 @@ MonoBehaviour:
   itemDisplayer: {fileID: 1099361678}
   PurchaseDisplayer: {fileID: 839062989}
   itemNameDisplayer: {fileID: 404647588}
+  ProfileDisplayer: {fileID: 1342302241}
   itemName: 4
   level: 0
   currentCost: 0
@@ -480,7 +492,8 @@ MonoBehaviour:
   startGoldPerSec: 0
   isPurchased: 0
   FileName: Friend5DB
-  Profile: {fileID: 21300000, guid: 79c31f50d96246547bb323ea8b40eb5e, type: 3}
+  Profile: {fileID: 21300000, guid: fc0d2d91440cf4de9a11e9753a98baa6, type: 3}
+  AfterProflie: {fileID: 21300000, guid: fbee3e2339a2d4ff4a2f026052016e41, type: 3}
   GiftData: {fileID: 424935210}
 --- !u!4 &58621587
 Transform:
@@ -552,6 +565,7 @@ MonoBehaviour:
   itemDisplayer: {fileID: 1676552220}
   PurchaseDisplayer: {fileID: 1988874942}
   itemNameDisplayer: {fileID: 437221775}
+  ProfileDisplayer: {fileID: 486419464}
   itemName: 3
   level: 0
   currentCost: 0
@@ -560,7 +574,8 @@ MonoBehaviour:
   startGoldPerSec: 0
   isPurchased: 0
   FileName: Friend4DB
-  Profile: {fileID: 0}
+  Profile: {fileID: 21300000, guid: a42514429d17a4e9fa57aa1163638942, type: 3}
+  AfterProflie: {fileID: 21300000, guid: 67a1f821730db49d486db12c261792b7, type: 3}
   GiftData: {fileID: 1096859061}
 --- !u!4 &145433482
 Transform:
@@ -753,7 +768,7 @@ MonoBehaviour:
   currentCost: 3000
   isPurchased: 0
   FriendData: {fileID: 524066806}
-  Profile: {fileID: 21300000, guid: 15b5db60ee02aad4cbf27f810bbc525d, type: 3}
+  Profile: {fileID: 21300000, guid: 309405700ceed42e7a4ee64d688ffbfb, type: 3}
 --- !u!1 &189820125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,8 +1105,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
+  m_sharedMaterial: {fileID: 3731246333147963608, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1115,7 +1130,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
+  m_fontSize: 99.1
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1359,7 +1374,7 @@ MonoBehaviour:
   currentCost: 20800
   isPurchased: 0
   FriendData: {fileID: 58621586}
-  Profile: {fileID: 21300000, guid: debd3b2d6a1df824b94dc870ceea08f8, type: 3}
+  Profile: {fileID: 21300000, guid: fbee3e2339a2d4ff4a2f026052016e41, type: 3}
 --- !u!114 &427713630 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3946268063548605249, guid: 27b1e00183fd7944489338c79086b104, type: 3}
@@ -1673,8 +1688,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
+  m_sharedMaterial: {fileID: 3731246333147963608, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1698,7 +1713,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
+  m_fontSize: 97.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1757,6 +1772,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &486419464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+  m_PrefabInstance: {fileID: 1327329642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &500843143
@@ -2024,6 +2050,7 @@ MonoBehaviour:
   itemDisplayer: {fileID: 1650191797}
   PurchaseDisplayer: {fileID: 1938819994}
   itemNameDisplayer: {fileID: 732121165}
+  ProfileDisplayer: {fileID: 1322020573}
   itemName: 1
   level: 0
   currentCost: 0
@@ -2032,7 +2059,8 @@ MonoBehaviour:
   startGoldPerSec: 0
   isPurchased: 0
   FileName: Friend2DB
-  Profile: {fileID: 21300000, guid: daec486d26ff0f34ca0ae0bd930d85b9, type: 3}
+  Profile: {fileID: 21300000, guid: 309405700ceed42e7a4ee64d688ffbfb, type: 3}
+  AfterProflie: {fileID: 0}
   GiftData: {fileID: 189375242}
 --- !u!4 &524066807
 Transform:
@@ -2513,7 +2541,7 @@ PrefabInstance:
     - target: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6a1a563650004e3468c6f34b7e737db4, type: 3}
+      objectReference: {fileID: 21300000, guid: a6963bc920b9e44fd81567bcfc33ab2b, type: 3}
     - target: {fileID: 8321242655365252745, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2806,8 +2834,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 634407573}
   m_HandleRect: {fileID: 634407572}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.35623878
+  m_Value: 1.0000001
+  m_Size: 0.35623837
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3162,7 +3190,7 @@ PrefabInstance:
     - target: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 79c31f50d96246547bb323ea8b40eb5e, type: 3}
+      objectReference: {fileID: 21300000, guid: fc0d2d91440cf4de9a11e9753a98baa6, type: 3}
     - target: {fileID: 8321242655365252745, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3364,7 +3392,7 @@ MonoBehaviour:
   currentCost: 7200
   isPurchased: 0
   FriendData: {fileID: 1278036973}
-  Profile: {fileID: 21300000, guid: 2028a2e2190906745ac3c98e762c1403, type: 3}
+  Profile: {fileID: 21300000, guid: 9d540d311435340019c3da3d29fd7f67, type: 3}
 --- !u!224 &957189303 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2490935430973403359, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
@@ -3542,7 +3570,7 @@ MonoBehaviour:
   currentCost: 15600
   isPurchased: 0
   FriendData: {fileID: 145433481}
-  Profile: {fileID: 21300000, guid: a4806f434104cb7438f4b9285f69c785, type: 3}
+  Profile: {fileID: 21300000, guid: 67a1f821730db49d486db12c261792b7, type: 3}
 --- !u!114 &1099361678 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 126180549268567565, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
@@ -3633,7 +3661,7 @@ MonoBehaviour:
   currentCost: 5400
   isPurchased: 0
   FriendData: {fileID: 1875304566}
-  Profile: {fileID: 21300000, guid: a5846b6006b30dc4ebf490f198769761, type: 3}
+  Profile: {fileID: 21300000, guid: 95948b004aab44222a26ece72df21a7b, type: 3}
 --- !u!1 &1278036972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3667,6 +3695,7 @@ MonoBehaviour:
   itemDisplayer: {fileID: 708893566}
   PurchaseDisplayer: {fileID: 1514800987}
   itemNameDisplayer: {fileID: 404124666}
+  ProfileDisplayer: {fileID: 21419885}
   itemName: 2
   level: 0
   currentCost: 0
@@ -3675,7 +3704,8 @@ MonoBehaviour:
   startGoldPerSec: 0
   isPurchased: 0
   FileName: Friend3DB
-  Profile: {fileID: 21300000, guid: 6a1a563650004e3468c6f34b7e737db4, type: 3}
+  Profile: {fileID: 21300000, guid: a6963bc920b9e44fd81567bcfc33ab2b, type: 3}
+  AfterProflie: {fileID: 21300000, guid: 9d540d311435340019c3da3d29fd7f67, type: 3}
   GiftData: {fileID: 950382082}
 --- !u!4 &1278036974
 Transform:
@@ -3820,6 +3850,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1322020573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+  m_PrefabInstance: {fileID: 2085368892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1323722547
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,8 +3920,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
+  m_sharedMaterial: {fileID: 3731246333147963608, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4065,7 +4106,7 @@ PrefabInstance:
     - target: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ca8a4b00abc27564abe5b18e3deca97c, type: 3}
+      objectReference: {fileID: 21300000, guid: a42514429d17a4e9fa57aa1163638942, type: 3}
     - target: {fileID: 8321242655365252745, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4080,6 +4121,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+--- !u!114 &1342302241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+  m_PrefabInstance: {fileID: 880358724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1364327125
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,7 +4616,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2197.7327}
+  m_AnchoredPosition: {x: 0, y: -2197.7332}
   m_SizeDelta: {x: 16.9587, y: 6827.789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1512659511
@@ -5356,8 +5408,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
+  m_sharedMaterial: {fileID: 3731246333147963608, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5890,6 +5942,7 @@ MonoBehaviour:
   itemDisplayer: {fileID: 1850649423}
   PurchaseDisplayer: {fileID: 162365122}
   itemNameDisplayer: {fileID: 795947636}
+  ProfileDisplayer: {fileID: 2042519670}
   itemName: KIM
   level: 0
   currentCost: 0
@@ -5898,7 +5951,8 @@ MonoBehaviour:
   startGoldPerSec: 0
   isPurchased: 0
   FileName: Friend1DB
-  Profile: {fileID: 21300000, guid: f4ab003649c51a74f9b4613639f9352b, type: 3}
+  Profile: {fileID: 21300000, guid: de5a508f635b94e1cae63ce3bc1c06b5, type: 3}
+  AfterProflie: {fileID: 21300000, guid: 95948b004aab44222a26ece72df21a7b, type: 3}
   GiftData: {fileID: 1206242536}
 --- !u!4 &1875304567
 Transform:
@@ -6428,6 +6482,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896f7dd2280670e46bcbd3a05c02a6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2042519670 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
+  m_PrefabInstance: {fileID: 31649252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2082609250
 GameObject:
   m_ObjectHideFlags: 0
@@ -6487,8 +6552,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ok
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
+  m_sharedMaterial: {fileID: 3731246333147963608, guid: ce59a4cfa03bf453b9ec991a6cff3325, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6673,7 +6738,7 @@ PrefabInstance:
     - target: {fileID: 2626244670802838593, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: daec486d26ff0f34ca0ae0bd930d85b9, type: 3}
+      objectReference: {fileID: 21300000, guid: f7081b2221296479ebe7de04f6be9d99, type: 3}
     - target: {fileID: 8321242655365252745, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 1
