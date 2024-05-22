@@ -68,24 +68,23 @@ public class GiftButton : MonoBehaviour
     }
     public void UpdateUI()
     {
-        itemNameDisplayer.text = itemName;
         //itemDisplayer.text = "Gold Per Sec: " + goldPerSec + "\nLv: " + level;
         if (!FriendData.isPurchased)
         {
-            PurchaseDisplayer.text = "Preparing";
+            PurchaseDisplayer.text = "준비 중";
             PurchaseDisplayer.GetComponentInParent<Button>().interactable = false;
         }
         else
         {
             if(isPurchased)
             {
-                PurchaseDisplayer.text = "Purchased";
+                PurchaseDisplayer.text = "보유 중";
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = false;
             }
             else
             {
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = true;
-                PurchaseDisplayer.text = "Cost: " + currentCost;
+                PurchaseDisplayer.text = "가격: " + currentCost;
             }
         }
     }
@@ -101,7 +100,13 @@ public class GiftButton : MonoBehaviour
 
             PopupPanel.SetActive(true);
             PopupImage.sprite = Profile;
-            TitleText.text = "Best Friend!";
+            TitleText.text = "베스트 프렌드!";
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        DataController.GetInstance().SaveGiftButton(this);
+        Application.Quit();
     }
 }
