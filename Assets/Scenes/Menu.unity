@@ -475,7 +475,6 @@ GameObject:
   m_Component:
   - component: {fileID: 258373713}
   - component: {fileID: 258373715}
-  - component: {fileID: 258373714}
   m_Layer: 5
   m_Name: FeverTime
   m_TagString: Untagged
@@ -505,25 +504,6 @@ RectTransform:
   m_AnchoredPosition: {x: -216.89482, y: 741.47}
   m_SizeDelta: {x: 333.7897, y: 95.0419}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &258373714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258373712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afdef42a258640f29bc861242a59637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feverSlider: {fileID: 258373715}
-  feverText: {fileID: 827289503}
-  maxFeverCount: 150
-  feverTimeDuration: 5
-  decreaseRate: 1
-  originalGoldMultiplier: 1
-  feverGoldMultiplier: 2
 --- !u!114 &258373715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,24 +549,12 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 150
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 258373715}
-        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
-        m_MethodName: StopAllCoroutines
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &279331929
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +681,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldPrefab: {fileID: 1225732895956529954, guid: 863d0b2df139843a4ad45859e94c68a3, type: 3}
   spawnInterval: 5
+--- !u!1 &426539034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426539037}
+  - component: {fileID: 426539036}
+  m_Layer: 0
+  m_Name: Fevermanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &426539036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426539034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afdef42a258640f29bc861242a59637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feverSlider: {fileID: 258373715}
+  feverText: {fileID: 827289503}
+  maxFeverCount: 150
+  feverTimeDuration: 5
+  decreaseRate: 1
+  feverGoldMultiplier: 2
+  feverSound: {fileID: 8300000, guid: e9c92c6aab5944536a91629b49fae8f8, type: 3}
+--- !u!4 &426539037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426539034}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1619.5885, y: 1576.5935, z: -12.305283}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &433627519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1866,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827289501}
   m_CullTransparentMesh: 1
+--- !u!1 &930800658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 930800659}
+  - component: {fileID: 930800661}
+  - component: {fileID: 930800660}
+  m_Layer: 5
+  m_Name: MainCharacter (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &930800659
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930800658}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1580531443}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.48125002, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.51625}
+  m_AnchoredPosition: {x: -180.90056, y: -8.807861}
+  m_SizeDelta: {x: 263.26108, y: 257.4104}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &930800660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930800658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9a839455bfd514388b2c67261271b55d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &930800661
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930800658}
+  m_CullTransparentMesh: 1
 --- !u!1 &991135352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,7 +2734,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 930800659}
   m_Father: {fileID: 500843147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3514,7 +3609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c795e5d85d791409b8bbf6ba49a81fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!1 &1881409756
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,3 +4400,4 @@ SceneRoots:
   - {fileID: 1518888547}
   - {fileID: 546833095}
   - {fileID: 1280202827}
+  - {fileID: 426539037}
