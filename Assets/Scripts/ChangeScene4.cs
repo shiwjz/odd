@@ -7,7 +7,7 @@ public class ChangeScene4 : MonoBehaviour
 {
     public void SceneChange()
     {
-        SceneManager.LoadScene("Shop");
+        SceneManager.LoadScene("MenuBeta");
 
     }
 }
