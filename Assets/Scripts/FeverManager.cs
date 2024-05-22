@@ -13,11 +13,12 @@ public class FeverManager : MonoBehaviour
     [SerializeField] private float feverTimeDuration = 5f; // 피버 타임 지속 시간
     [SerializeField] private float decreaseRate = 1f; // 게이지 감소 속도 (초당 감소량)
     [SerializeField] private int feverGoldMultiplier = 2; // 피버 타임 동안 골드 배수
-
+    [SerializeField] private  AudioSource feverSound; //피버 타임 소리 클립
     private int currentFeverCount; // 현재 클릭 수
     private bool isFeverActive; // 피버 타임 활성화 여부
     private float lastClickTime; // 마지막 클릭 시간
     private int originalGoldMultiplier; // 원래 골드 배수 저장
+    
 
     void Awake()
     {
@@ -38,6 +39,7 @@ public class FeverManager : MonoBehaviour
         feverText.text = "0/" + maxFeverCount;
 
         feverSlider.interactable = false;
+        
     }
 
     void Update()
@@ -45,10 +47,16 @@ public class FeverManager : MonoBehaviour
         if (!isFeverActive && currentFeverCount > 0 && Time.time - lastClickTime > 3f)
         {
             
+            
                 currentFeverCount = Mathf.Max(0, currentFeverCount - Mathf.CeilToInt(Time.deltaTime * decreaseRate));
                 feverSlider.value = currentFeverCount;
                 feverText.text = currentFeverCount + "/" + maxFeverCount;
             
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            StartFeverTime();
         }
     }
 
@@ -75,16 +83,24 @@ public class FeverManager : MonoBehaviour
         originalGoldMultiplier = DataController.GetInstance().GetGoldMultiplier(); // 원래 골드 배수 저장
         DataController.GetInstance().SetGoldMultiplier(feverGoldMultiplier); // 피버 타임 동안 골드 배수 적용
         StartCoroutine(FeverTimeCountdown());
+        feverSound.Play();
     }
 
     private IEnumerator FeverTimeCountdown()
     {
-        yield return new WaitForSeconds(feverTimeDuration);
-        DataController.GetInstance().SetGoldMultiplier(originalGoldMultiplier); // 피버 타임 종료 후 골드 배수를 원래대로 복구
+        float countdown = feverTimeDuration;
+        while (countdown > 0)
+        {
+            countdown -= Time.deltaTime;
+            currentFeverCount = (int)(maxFeverCount * (countdown / feverTimeDuration));
+            feverSlider.value = currentFeverCount;
+            feverText.text = currentFeverCount + "/" + maxFeverCount;
+            yield return null;
+        }
         isFeverActive = false;
-        currentFeverCount = 0;
-        feverSlider.value = 0;
-        feverText.text = "0/" + maxFeverCount;
+        DataController.GetInstance().SetGoldMultiplier(originalGoldMultiplier); // 피버 타임 종료 후 골드 배수를 원래대로 복구
+        ResetFeverGauge();
+        
     }
 
     public bool IsFeverActive()
