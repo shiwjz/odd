@@ -489,24 +489,6 @@ RectTransform:
   m_AnchoredPosition: {x: -216.89482, y: 741.47}
   m_SizeDelta: {x: 333.7897, y: 95.0419}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &258373714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258373712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afdef42a258640f29bc861242a59637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feverSlider: {fileID: 258373715}
-  feverText: {fileID: 827289503}
-  maxFeverCount: 150
-  feverTimeDuration: 5
-  decreaseRate: 1
-  feverGoldMultiplier: 2
 --- !u!114 &258373715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3435,6 +3417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1860111935}
   - component: {fileID: 1860111934}
+  - component: {fileID: 1860111936}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -3553,6 +3536,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1860111936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860111933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c795e5d85d791409b8bbf6ba49a81fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1881409756
 GameObject:
   m_ObjectHideFlags: 0
