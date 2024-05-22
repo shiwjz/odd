@@ -153,9 +153,8 @@ public class ItemButton : MonoBehaviour
 
     public void UpdateUI()
     {
-        itemNameDisplayer.text = itemName;
-        itemDisplayer.text = "Gold Per Sec: " + goldPerSec + "\nLv: " + level;
-        PurchaseDisplayer.text = "Cost: " + currentCost;
+        itemDisplayer.text = "초 당 인기도: " + goldPerSec + "\n레벨: " + level;
+        PurchaseDisplayer.text = "가격: " + currentCost;
         if(GiftData.isPurchased)
         {
             ProfileDisplayer.sprite = AfterProflie;
@@ -175,7 +174,12 @@ public class ItemButton : MonoBehaviour
 
             PopupPanel.SetActive(true);
             PopupImage.sprite = Profile;
-            TitleText.text = "New Friend!";
+            TitleText.text = "새로운 친구!";
         }
+    }
+    private void OnApplicationQuit()
+    {
+        DataController.GetInstance().SaveItemButton(this);
+        Application.Quit();
     }
 }

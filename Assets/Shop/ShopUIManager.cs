@@ -11,7 +11,7 @@ public class ShopUiManager : MonoBehaviour
 
     void Update()
     {
-        CurrentPerSecDisplayer.text = "GoldPerSec:" + DataController.GetInstance().GetGoldPerSec();
+        CurrentPerSecDisplayer.text = "초 당 인기도:" + DataController.GetInstance().GetGoldPerSec();
         CurrentGoldDisplayer.text = "Gold:" + DataController.GetInstance().GetGold();
     }
 }
