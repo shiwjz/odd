@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886f1553301c75842a59b0bdddc429c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicsource: {fileID: 0}
+  musicsource: {fileID: 1860111934}
   btnsource: {fileID: 1280202826}
 --- !u!114 &203943806
 MonoBehaviour:
@@ -522,6 +522,8 @@ MonoBehaviour:
   maxFeverCount: 150
   feverTimeDuration: 5
   decreaseRate: 1
+  originalGoldMultiplier: 1
+  feverGoldMultiplier: 2
 --- !u!114 &258373715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1317,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 546833093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 388ce134a418c97459a43a1c99cf3691, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d435afdf2fec994f89ff747de1bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicsource: {fileID: 1860111934}
@@ -1344,7 +1346,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 616508420}
-  - component: {fileID: 616508419}
   m_Layer: 0
   m_Name: CSVReader
   m_TagString: Untagged
@@ -1352,18 +1353,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &616508419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616508418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff272974d66a4ec19d1e2c40249e7fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &616508420
 Transform:
   m_ObjectHideFlags: 0
@@ -2605,8 +2594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886f1553301c75842a59b0bdddc429c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicsource: {fileID: 0}
-  btnsource: {fileID: 0}
+  musicsource: {fileID: 1860111934}
+  btnsource: {fileID: 1280202826}
 --- !u!4 &1518888547
 Transform:
   m_ObjectHideFlags: 0
@@ -3412,7 +3401,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 199130ad40ce59c4eb03382278d0814a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 46379a71927e649af86aeb4b1ac34deb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3525,6 +3514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c795e5d85d791409b8bbf6ba49a81fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1 &1881409756
 GameObject:
   m_ObjectHideFlags: 0

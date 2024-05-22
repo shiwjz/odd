@@ -7,6 +7,6 @@ public class SelectShop : MonoBehaviour
 {
     public void IntoShop()
     {
-        SceneManager.LoadScene("Shop");
+        GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(true);
     }
 }

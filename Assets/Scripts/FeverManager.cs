@@ -73,7 +73,7 @@ public class FeverManager : MonoBehaviour
         feverText.text = "FEVER";
         StartCoroutine(FeverTimeCountdown());
         DataController.GetInstance().ResetGoldMultiplier();
-        DataController.GetInstance().SetGoldMultiplier(feverGoldMultiplier);
+        //DataController.GetInstance().SetGoldMultiplier(feverGoldMultiplier);
     }
 
     private IEnumerator FeverTimeCountdown()
