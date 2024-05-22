@@ -42,7 +42,7 @@ public class GiftButton : MonoBehaviour
         UpdateUI();
         //StartCoroutine("AddGoldLoop");
     }
-    private void Start()
+    private void OnEnable()
     {
         UpdateUI();
     }
