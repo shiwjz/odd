@@ -5,7 +5,11 @@ using UnityEngine;
 public class DataController : MonoBehaviour
 {
     private static DataController instance;
+    private int goldMultiplier = 1; // 골드 획득량 배수
     public static DataController GetInstance()
+        
+
+
     {
         if (instance == null)
         {
@@ -41,9 +45,15 @@ public class DataController : MonoBehaviour
 
     public void AddGold(int newGold)
     {
-        m_gold += newGold;
+        m_gold += newGold * goldMultiplier;
         PlayerPrefs.SetInt("Gold", m_gold);
     }
+
+    public void ResetGoldMultiplier()
+    {
+        goldMultiplier = 1; // 골드 획득량 배수를 원래대로 리셋
+    }
+
 
     public void SubGold(int newGold)
     {
@@ -161,4 +171,16 @@ public class DataController : MonoBehaviour
         m_goldPerClick = newGoldPerClick;
         PlayerPrefs.SetInt("GoldPerClick", m_goldPerClick);
     }
+
+    public void SetGoldMultiplier(int multiplier)
+    {
+        goldMultiplier = multiplier;
+    }
+
+    // 골드 획득량 계산
+    public int CalculateGoldPerClick(int baseGoldPerClick)
+    {
+        return Mathf.RoundToInt(baseGoldPerClick * goldMultiplier);
+    }
+
 }
