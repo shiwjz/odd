@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -215,4 +216,13 @@ public class DataController : MonoBehaviour
         return Mathf.RoundToInt(baseGoldPerClick * goldMultiplier);
     }
 
+    public void SetGoldMultiplier(float feverGoldMultiplier)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int GetGoldMultiplier()
+    {
+        return goldMultiplier;
+    }
 }
