@@ -39,8 +39,17 @@ public class ClickButton : MonoBehaviour
         RectTransform rectTransform = Inst.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = localPoint;
 
-        Destroy(Inst, 2f);
+        
+        Rigidbody2D rb = Inst.GetComponent<Rigidbody2D>();
+        
+        
 
+        // 랜덤한 방향과 크기의 힘 적용
+        float randomForceX = Random.Range(-5f, 5f); // X축 방향 랜덤 힘
+        float randomForceY = Random.Range(5f, 10f); // Y축 방향 랜덤 힘 (위로 튀게 하기 위해)
+        rb.AddForce(new Vector2(randomForceX, randomForceY)*100, ForceMode2D.Impulse);
+
+        Destroy(Inst, 2f); // 2초 후에 오브젝트 파괴
     }
     // 버튼 클릭 시 호출될 메소드
     public void OnButtonClick()
