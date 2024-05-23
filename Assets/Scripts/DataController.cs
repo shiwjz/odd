@@ -182,17 +182,11 @@ public class DataController : MonoBehaviour
         GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(true);
         for (int i = 0; i < ItemButtons.Length;i++)
         {
-            ItemButtons[i].level = 0;
-            ItemButtons[i].goldPerSec = 0;
-            ItemButtons[i].isPurchased= false;
-            ItemButtons[i].currentCost = 0;
-            ItemButtons[i].UpdateItemData();
-            ItemButtons[i].UpdateUI();
+            ItemButtons[i].ResetItem();
         }
         for (int i = 0; i < GiftButtons.Length; i++)
         {
-            GiftButtons[i].isPurchased = false;
-            GiftButtons[i].UpdateUI();
+            GiftButtons[i].ResetGift();
         }
         GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(false);
         m_gold = 0;

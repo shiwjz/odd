@@ -387,6 +387,7 @@ MonoBehaviour:
   Profile: {fileID: 21300000, guid: a6963bc920b9e44fd81567bcfc33ab2b, type: 3}
   FriendName: "\uC591\uC544\uCE58"
   GiftData: {fileID: 1857759767}
+  FriendImage: {fileID: 1838284454}
 --- !u!1 &87149706
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +447,7 @@ MonoBehaviour:
   Profile: {fileID: 21300000, guid: f7081b2221296479ebe7de04f6be9d99, type: 3}
   FriendName: "\uB369\uCE58"
   GiftData: {fileID: 411275258}
+  FriendImage: {fileID: 624420421}
 --- !u!114 &96037701 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6633538844034663211, guid: 27b1e00183fd7944489338c79086b104, type: 3}
@@ -1384,7 +1386,7 @@ PrefabInstance:
     - target: {fileID: 8321242655365252745, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 577834753}
     - target: {fileID: 8321242655365252745, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1725,6 +1727,7 @@ MonoBehaviour:
   ScriptText: "... \uACE0\uB9C8\uC6CC, \uB09C \uD55C \uBC88\uCBE4 \uACE0\uC591\uC774\uAC00
     \uB3FC\uBCF4\uACE0 \uC2F6\uC5C8\uC5B4. \uC57C\uC639 ... \uC561\uC62D .. (\uC218\uC90D)"
   FriendName: "\uB369\uCE58"
+  FriendImage: {fileID: 624420421}
 --- !u!4 &411275259
 Transform:
   m_ObjectHideFlags: 0
@@ -2647,6 +2650,7 @@ MonoBehaviour:
   Profile: {fileID: 21300000, guid: de5a508f635b94e1cae63ce3bc1c06b5, type: 3}
   FriendName: "\uACF5\uC8FC\uBCD1"
   GiftData: {fileID: 913492113}
+  FriendImage: {fileID: 1011895772}
 --- !u!224 &604460400 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2490935430973403359, guid: 27b1e00183fd7944489338c79086b104, type: 3}
@@ -2903,6 +2907,7 @@ GameObject:
   - component: {fileID: 624420422}
   - component: {fileID: 624420424}
   - component: {fileID: 624420423}
+  - component: {fileID: 624420425}
   m_Layer: 5
   m_Name: Big
   m_TagString: Untagged
@@ -2967,6 +2972,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624420421}
   m_CullTransparentMesh: 1
+--- !u!114 &624420425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624420421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1d4378d9e7b17488b4fdbcf2a01563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendData: {fileID: 87149708}
+  GiftData: {fileID: 411275258}
 --- !u!114 &649536876 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2626244670802838593, guid: 27b1e00183fd7944489338c79086b104, type: 3}
@@ -4245,7 +4264,7 @@ MonoBehaviour:
   itemName: Comicbook
   currentCost: 5400
   isPurchased: 0
-  FriendData: {fileID: 0}
+  FriendData: {fileID: 577834753}
   ProfileDisplayer: {fileID: 522171157}
   Profile: {fileID: 21300000, guid: 95948b004aab44222a26ece72df21a7b, type: 3}
   ScriptText: "\uC774\uAC74... \uCC9C\uC6D0\uB3CC\uD30C \uB9C8\uC9C0\uB9C9 \uD654\uC796\uC544!
@@ -4253,6 +4272,7 @@ MonoBehaviour:
     \uBB38\uD654\uB97C \uCCB4\uD5D8\uD574 \uBCF4\uB294 \uAC83\uB3C4 \uB098\uC058\uC9C4
     \uC54A\uACA0\uB124."
   FriendName: "\uACF5\uC8FC\uBCD1"
+  FriendImage: {fileID: 1011895772}
 --- !u!114 &928348282 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2626244670802838593, guid: 27b1e00183fd7944489338c79086b104, type: 3}
@@ -4574,6 +4594,7 @@ GameObject:
   - component: {fileID: 1011895773}
   - component: {fileID: 1011895775}
   - component: {fileID: 1011895774}
+  - component: {fileID: 1011895776}
   m_Layer: 5
   m_Name: Princess
   m_TagString: Untagged
@@ -4638,6 +4659,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011895772}
   m_CullTransparentMesh: 1
+--- !u!114 &1011895776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011895772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1d4378d9e7b17488b4fdbcf2a01563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendData: {fileID: 577834753}
+  GiftData: {fileID: 913492113}
 --- !u!1001 &1025468216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5280,7 +5315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2197.733}
+  m_AnchoredPosition: {x: 0, y: -2197.734}
   m_SizeDelta: {x: 16.9587, y: 6827.789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057609036
@@ -5462,8 +5497,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2129071549}
   m_HandleRect: {fileID: 2129071548}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.3561019
+  m_Value: 1.0000002
+  m_Size: 0.35622442
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6295,6 +6330,7 @@ MonoBehaviour:
     \uC120\uBB3C\uC774\uB77C\uB2C8! \uC774\uB7F0 \uC77C\uC774 \uC788\uC744 \uC218\uAC00
     ..! ) \uD07C\uAE08. \uC55E\uC774 \uB354 \uC798 \uBCF4\uC774\uB294 \uAD70. \uC544\uB9AC\uAC00\uB610\uB124."
   FriendName: "\uC624\uB355"
+  FriendImage: {fileID: 1881409756}
 --- !u!4 &1284125867
 Transform:
   m_ObjectHideFlags: 0
@@ -7063,6 +7099,7 @@ MonoBehaviour:
     \uC774\uC81C \uBA40\uC9C0 \uC54A\uC558\uAD70\uC694. \uAC10\uC0AC\uD569\uB2C8\uB2E4,
     \uC5B8\uC820\uAC04 \uBCF4\uB2F5\uD558\uB3C4\uB85D \uD558\uC8E0 \uC9C0\uAD6C\uC778."
   FriendName: "\uC0AC\uCE74\uBAA8\uD1A0"
+  FriendImage: {fileID: 1591147630}
 --- !u!1 &1401343278
 GameObject:
   m_ObjectHideFlags: 0
@@ -7594,6 +7631,7 @@ GameObject:
   - component: {fileID: 1591147631}
   - component: {fileID: 1591147633}
   - component: {fileID: 1591147632}
+  - component: {fileID: 1591147634}
   m_Layer: 5
   m_Name: Sakamoto
   m_TagString: Untagged
@@ -7658,6 +7696,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591147630}
   m_CullTransparentMesh: 1
+--- !u!114 &1591147634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591147630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1d4378d9e7b17488b4fdbcf2a01563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendData: {fileID: 1989368578}
+  GiftData: {fileID: 1390647162}
 --- !u!114 &1594423074 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 126180549268567565, guid: cc7f9559456fba94f81c72ced949c19e, type: 3}
@@ -8784,6 +8836,7 @@ GameObject:
   - component: {fileID: 1838284455}
   - component: {fileID: 1838284457}
   - component: {fileID: 1838284456}
+  - component: {fileID: 1838284458}
   m_Layer: 5
   m_Name: Gangster
   m_TagString: Untagged
@@ -8848,6 +8901,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838284454}
   m_CullTransparentMesh: 1
+--- !u!114 &1838284458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838284454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1d4378d9e7b17488b4fdbcf2a01563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendData: {fileID: 43786777}
+  GiftData: {fileID: 1857759767}
 --- !u!114 &1848741821 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 126180549268567565, guid: 27b1e00183fd7944489338c79086b104, type: 3}
@@ -8903,6 +8970,7 @@ MonoBehaviour:
     \uCEA3\uB300\uB514\uB77C\uACE0 \uBD88\uB7EC\uC8FC\uACA0\uC5B4? \uBB50 \uADF8\uAC8C
     \uB098\uC05C \uC758\uBBF8...\uB77C\uACE0?"
   FriendName: "\uC591\uC544\uCE58"
+  FriendImage: {fileID: 1838284454}
 --- !u!4 &1857759768
 Transform:
   m_ObjectHideFlags: 0
@@ -9202,6 +9270,7 @@ GameObject:
   - component: {fileID: 1881409757}
   - component: {fileID: 1881409759}
   - component: {fileID: 1881409758}
+  - component: {fileID: 1881409760}
   m_Layer: 5
   m_Name: Mania
   m_TagString: Untagged
@@ -9266,6 +9335,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881409756}
   m_CullTransparentMesh: 1
+--- !u!114 &1881409760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881409756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1d4378d9e7b17488b4fdbcf2a01563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendData: {fileID: 2004062803}
+  GiftData: {fileID: 1284125866}
 --- !u!1 &1911170304
 GameObject:
   m_ObjectHideFlags: 0
@@ -9477,6 +9560,7 @@ MonoBehaviour:
   Profile: {fileID: 21300000, guid: fc0d2d91440cf4de9a11e9753a98baa6, type: 3}
   FriendName: "\uC0AC\uCE74\uBAA8\uD1A0"
   GiftData: {fileID: 1390647162}
+  FriendImage: {fileID: 1591147630}
 --- !u!4 &1989368579
 Transform:
   m_ObjectHideFlags: 0
@@ -9620,6 +9704,7 @@ MonoBehaviour:
   Profile: {fileID: 21300000, guid: a42514429d17a4e9fa57aa1163638942, type: 3}
   FriendName: "\uC624\uD0C0\uCFE0"
   GiftData: {fileID: 1284125866}
+  FriendImage: {fileID: 1881409756}
 --- !u!1 &2006542519
 GameObject:
   m_ObjectHideFlags: 0

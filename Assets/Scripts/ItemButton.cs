@@ -61,6 +61,7 @@ public class ItemButton : MonoBehaviour
 
     public GiftButton GiftData;
 
+    public GameObject FriendImage;
     void Awake()
     {
         LoadGameData();
@@ -140,7 +141,8 @@ public class ItemButton : MonoBehaviour
             UpdateItemData();
             UpdateUI();
             DataController.GetInstance().SaveItemButton(this);
-            
+
+            FriendImage.SetActive(true);
         }
     }
 
@@ -155,7 +157,7 @@ public class ItemButton : MonoBehaviour
 
     public void UpdateUI()
     {
-        itemDisplayer.text = "초 당 인기도: " + goldPerSec + "\n레벨: " + level;
+        itemDisplayer.text = goldPerSec + "    /초" + "\n레벨: " + level;
         PurchaseDisplayer.text = "가격: " + currentCost;
 
     }
@@ -176,6 +178,16 @@ public class ItemButton : MonoBehaviour
             DetailText.text = ScriptText;
             GameContentText.text = "교실에 " + FriendName + " 친구 추가!";
         }
+    }
+
+    public void ResetItem()
+    {
+        level = 0;
+        goldPerSec = 0;
+        isPurchased= false;
+        currentCost = 0;
+        UpdateItemData();
+        UpdateUI();
     }
     private void OnApplicationQuit()
     {

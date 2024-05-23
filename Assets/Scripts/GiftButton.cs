@@ -41,6 +41,8 @@ public class GiftButton : MonoBehaviour
 
     private TMP_Text DetailText;
 
+    public GameObject FriendImage;
+
     void Awake()
     {
         DataController.GetInstance().LoadGiftButton(this);
@@ -63,7 +65,6 @@ public class GiftButton : MonoBehaviour
             DataController.GetInstance().SubGold(currentCost);
             UpdateUI();
             DataController.GetInstance().SaveGiftButton(this);
-
         }
     }
     public void UpdateUI()
@@ -79,7 +80,7 @@ public class GiftButton : MonoBehaviour
         {
             if(isPurchased)
             {
-                itemDisplayer.text = FriendName + " 능력 2배";
+                itemDisplayer.text = FriendName + "     /초 +50%!";
                 PurchaseDisplayer.text = "보유 중";
                 ProfileDisplayer.sprite = Profile;
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = false;
@@ -87,7 +88,7 @@ public class GiftButton : MonoBehaviour
             else
             {
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = true;
-                PurchaseDisplayer.text = "가격: " + currentCost;
+                PurchaseDisplayer.text = "  " + currentCost;
             }
         }
     }
@@ -105,8 +106,14 @@ public class GiftButton : MonoBehaviour
             PopupImage.sprite = Profile;
             TitleText.text = "Best Friend!";
             DetailText.text = ScriptText;
-            GameContentText.text = FriendName + "(좋아요)/초 +50%!";
+            GameContentText.text = FriendName + "     /초 +50%!";
         }
+    }
+
+    public void ResetGift()
+    {
+        isPurchased = false;
+        UpdateUI();
     }
 
     private void OnApplicationQuit()
