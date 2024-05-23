@@ -39,11 +39,15 @@ public class ItemButton : MonoBehaviour
     
     public bool isPurchased = false;
 
+    public string ScriptText;
+
     public string FileName;
 
     private string[] dataRows;
 
     public Sprite Profile;
+
+    public string FriendName;
 
     private GameObject PopupPanel;
 
@@ -93,6 +97,10 @@ public class ItemButton : MonoBehaviour
         else
         {
             goldPerSec = int.Parse(row[2]);
+            if(GiftData.isPurchased)
+            {
+                goldPerSec = (int)(goldPerSec * 1.5f);
+            }
         }
 
         if (!int.TryParse(nextrow[1], out currentCost))
@@ -164,7 +172,9 @@ public class ItemButton : MonoBehaviour
 
             PopupPanel.SetActive(true);
             PopupImage.sprite = Profile;
-            TitleText.text = "货肺款 模备!";
+            TitleText.text = "New Friend!";
+            DetailText.text = ScriptText;
+            GameContentText.text = "背角俊 " + FriendName + " 模备 眠啊!";
         }
     }
     private void OnApplicationQuit()
