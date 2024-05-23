@@ -15,10 +15,7 @@ public class ItemButton : MonoBehaviour
 
     public TMP_Text PurchaseDisplayer;
 
-
     public TMP_Text itemNameDisplayer;
-
-    public Image ProfileDisplayer;
 
     public string itemName;
 
@@ -34,8 +31,6 @@ public class ItemButton : MonoBehaviour
 
     public int goldPerSec;
 
-    public int startGoldPerSec = 1;
-
     //public float costPow = 3.14f;
 
     //[HideInInspector]
@@ -49,8 +44,6 @@ public class ItemButton : MonoBehaviour
     private string[] dataRows;
 
     public Sprite Profile;
-
-    public Sprite AfterProflie;
 
     private GameObject PopupPanel;
 
@@ -73,6 +66,7 @@ public class ItemButton : MonoBehaviour
         UpdateUI();
         StartCoroutine("AddGoldLoop");
     }
+
     void LoadGameData()
     {
         TextAsset data = Resources.Load<TextAsset>(FileName);
@@ -155,10 +149,6 @@ public class ItemButton : MonoBehaviour
     {
         itemDisplayer.text = "초 당 인기도: " + goldPerSec + "\n레벨: " + level;
         PurchaseDisplayer.text = "가격: " + currentCost;
-        if(GiftData.isPurchased)
-        {
-            ProfileDisplayer.sprite = AfterProflie;
-        }
 
     }
 
@@ -180,6 +170,5 @@ public class ItemButton : MonoBehaviour
     private void OnApplicationQuit()
     {
         DataController.GetInstance().SaveItemButton(this);
-        Application.Quit();
     }
 }

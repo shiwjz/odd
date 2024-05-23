@@ -8,6 +8,7 @@ public class StartGame : MonoBehaviour
     {
         GameObject.Find("Shop").SetActive(false);
         GameObject.Find("Popup").SetActive(false);
+        GameObject.Find("Setting").SetActive(false);
     }
 
 }

@@ -21,6 +21,7 @@ public class DataController : MonoBehaviour
         return instance;
     }
     private ItemButton[] ItemButtons;
+    private GiftButton[] GiftButtons;
     private int m_gold = 0;
     private int m_goldPerClick = 1;
     private int m_goldPerSec = 0;
@@ -32,6 +33,7 @@ public class DataController : MonoBehaviour
         m_goldPerClick = PlayerPrefs.GetInt("GoldPerClick", 1);
         m_goldPerSec = PlayerPrefs.GetInt("GoldPerSec", 0);
         ItemButtons = FindObjectsOfType<ItemButton>();
+        GiftButtons = FindObjectsOfType<GiftButton>();
     }
 
     public void SetGold(int newGold)
@@ -133,7 +135,7 @@ public class DataController : MonoBehaviour
         string key = giftButton.itemName;
 
         //giftButton.level = PlayerPrefs.GetInt(key + "_level");
-        giftButton.currentCost = PlayerPrefs.GetInt(key + "_cost", giftButton.currentCost);
+        //giftButton.currentCost = PlayerPrefs.GetInt(key + "_cost", giftButton.currentCost);
 
         //giftButton.goldPerSec = PlayerPrefs.GetInt(key + "_goldPerSec");
         if (PlayerPrefs.GetInt(key + "_isPurchased") == 1)
@@ -150,7 +152,7 @@ public class DataController : MonoBehaviour
     {
         string key = giftButton.itemName;
         //PlayerPrefs.SetInt(key + "_level", itemButton.level);
-        PlayerPrefs.SetInt(key + "_cost", giftButton.currentCost);
+        //PlayerPrefs.SetInt(key + "_cost", giftButton.currentCost);
         //PlayerPrefs.SetInt(key + "_goldPerSec", itemButton.goldPerSec);
 
         if (giftButton.isPurchased == true)
@@ -177,6 +179,22 @@ public class DataController : MonoBehaviour
     public void ResetData()
     {
         PlayerPrefs.DeleteAll();
+        GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(true);
+        for (int i = 0; i < ItemButtons.Length;i++)
+        {
+            ItemButtons[i].level = 0;
+            ItemButtons[i].goldPerSec = 0;
+            ItemButtons[i].isPurchased= false;
+            ItemButtons[i].currentCost = 0;
+            ItemButtons[i].UpdateItemData();
+            ItemButtons[i].UpdateUI();
+        }
+        for (int i = 0; i < GiftButtons.Length; i++)
+        {
+            GiftButtons[i].isPurchased = false;
+            GiftButtons[i].UpdateUI();
+        }
+        GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(false);
         m_gold = 0;
         m_goldPerClick = 1;
         m_goldPerSec = 0;
