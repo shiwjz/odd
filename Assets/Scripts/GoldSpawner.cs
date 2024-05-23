@@ -6,6 +6,7 @@ public class GoldSpawner : MonoBehaviour
     public GameObject goldPrefab; // 골드 오브젝트의 프리팹
     public float spawnInterval = 1.0f; // 오브젝트를 생성하는 간격 (초)
     private RectTransform canvasRectTransform;
+    public bool canSpawnGold = true; // 골드 오브젝트 생성 가능 여부
 
     void Start()
     {
@@ -21,7 +22,12 @@ public class GoldSpawner : MonoBehaviour
         GameObject gold = Instantiate(goldPrefab, canvasRectTransform);
         RectTransform goldRectTransform = gold.GetComponent<RectTransform>();
         goldRectTransform.anchoredPosition = new Vector2(randomX - canvasRectTransform.rect.width / 2, randomY - canvasRectTransform.rect.height / 2);
-        
+
     }
+    public void ResetGoldSpawnState()
+    {
+        canSpawnGold = true;
+    }
+
 
 }
