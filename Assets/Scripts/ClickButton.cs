@@ -21,6 +21,8 @@ public class ClickButton : MonoBehaviour
     {
         AddGold();
         FeverManager.Instance.RegisterClick();
+        buttonImage.sprite = image2; // 이미지 변경
+        Invoke("ResetImage", 0.5f); // 0.5초 후에 이미지 리셋
     }
 
     private void AddGold()
@@ -52,11 +54,7 @@ public class ClickButton : MonoBehaviour
         Destroy(Inst, 2f); // 2초 후에 오브젝트 파괴
     }
     // 버튼 클릭 시 호출될 메소드
-    public void OnButtonClick()
-    {
-        buttonImage.sprite = image2; // 이미지 변경
-        Invoke("ResetImage", 0.5f); // 0.5초 후에 이미지 리셋
-    }
+ 
 
     // 이미지를 원래대로 복구하는 메소드
     private void ResetImage()
