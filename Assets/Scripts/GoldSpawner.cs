@@ -4,7 +4,7 @@ using UnityEngine;
 public class GoldSpawner : MonoBehaviour
 {
     public GameObject goldPrefab; // 골드 오브젝트의 프리팹
-    public float spawnInterval = 1.0f; // 오브젝트를 생성하는 간격 (초)
+    public float spawnInterval = 5.0f; // 오브젝트를 생성하는 간격 (초)
     private RectTransform canvasRectTransform;
     public bool canSpawnGold = true; // 골드 오브젝트 생성 가능 여부
 

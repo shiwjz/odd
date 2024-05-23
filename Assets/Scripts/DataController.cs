@@ -20,6 +20,7 @@ public class DataController : MonoBehaviour
         }
         return instance;
     }
+    private FriendImageViewer[] friendImageViewers;
     private ItemButton[] ItemButtons;
     private GiftButton[] GiftButtons;
     private int m_gold = 0;
@@ -179,14 +180,16 @@ public class DataController : MonoBehaviour
     public void ResetData()
     {
         PlayerPrefs.DeleteAll();
+        friendImageViewers = FindObjectsOfType<FriendImageViewer>();
         GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(true);
         for (int i = 0; i < ItemButtons.Length;i++)
         {
             ItemButtons[i].ResetItem();
-        }
-        for (int i = 0; i < GiftButtons.Length; i++)
-        {
             GiftButtons[i].ResetGift();
+        }
+        for (int i = 0; i < friendImageViewers.Length;i++)
+        {
+            friendImageViewers[i].gameObject.SetActive(false);
         }
         GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(false);
         m_gold = 0;
