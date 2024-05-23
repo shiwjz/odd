@@ -39,11 +39,15 @@ public class ItemButton : MonoBehaviour
     
     public bool isPurchased = false;
 
+    public string ScriptText;
+
     public string FileName;
 
     private string[] dataRows;
 
     public Sprite Profile;
+
+    public string FriendName;
 
     private GameObject PopupPanel;
 
@@ -57,6 +61,7 @@ public class ItemButton : MonoBehaviour
 
     public GiftButton GiftData;
 
+    public GameObject FriendImage;
     void Awake()
     {
         LoadGameData();
@@ -93,6 +98,10 @@ public class ItemButton : MonoBehaviour
         else
         {
             goldPerSec = int.Parse(row[2]);
+            if(GiftData.isPurchased)
+            {
+                goldPerSec = (int)(goldPerSec * 1.5f);
+            }
         }
 
         if (!int.TryParse(nextrow[1], out currentCost))
@@ -132,7 +141,8 @@ public class ItemButton : MonoBehaviour
             UpdateItemData();
             UpdateUI();
             DataController.GetInstance().SaveItemButton(this);
-            
+
+            FriendImage.SetActive(true);
         }
     }
 
@@ -147,7 +157,7 @@ public class ItemButton : MonoBehaviour
 
     public void UpdateUI()
     {
-        itemDisplayer.text = "초 당 인기도: " + goldPerSec + "\n레벨: " + level;
+        itemDisplayer.text = goldPerSec + "    /초" + "\n레벨: " + level;
         PurchaseDisplayer.text = "가격: " + currentCost;
 
     }
@@ -164,8 +174,20 @@ public class ItemButton : MonoBehaviour
 
             PopupPanel.SetActive(true);
             PopupImage.sprite = Profile;
-            TitleText.text = "새로운 친구!";
+            TitleText.text = "New Friend!";
+            DetailText.text = ScriptText;
+            GameContentText.text = "교실에 " + FriendName + " 친구 추가!";
         }
+    }
+
+    public void ResetItem()
+    {
+        level = 0;
+        goldPerSec = 0;
+        isPurchased= false;
+        currentCost = 0;
+        UpdateItemData();
+        UpdateUI();
     }
     private void OnApplicationQuit()
     {
