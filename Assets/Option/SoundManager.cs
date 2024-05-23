@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource btnsource;
 
-    private void Start()
+    private void Awake()
     {
         GameObject.Find("MusicSlider").GetComponent<Slider>().value = musicsource.volume;
         GameObject.Find("SfxSlider").GetComponent<Slider>().value = btnsource.volume;
