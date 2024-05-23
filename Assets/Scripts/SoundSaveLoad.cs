@@ -19,4 +19,9 @@ public class SoundLoad : MonoBehaviour
         PlayerPrefs.SetFloat("MusicVolume", musicsource.volume);
         PlayerPrefs.SetFloat("SfxVolume", btnsource.volume);
     }
+
+    private void OnApplicationQuit()
+    {
+        SoundSave();
+    }
 }
