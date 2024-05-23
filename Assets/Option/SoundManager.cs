@@ -34,6 +34,6 @@ public class SoundManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("MusicVolume", musicsource.volume);
         PlayerPrefs.SetFloat("SfxVolume", btnsource.volume);
-        SceneManager.LoadScene("Menu");
+        GameObject.Find("Setting").SetActive(false);
     }
 }

@@ -23,6 +23,8 @@ public class GiftButton : MonoBehaviour
 
     public ItemButton FriendData;
 
+    public Image ProfileDisplayer;
+
     public Sprite Profile;
 
     private GameObject PopupPanel;
@@ -38,17 +40,12 @@ public class GiftButton : MonoBehaviour
     void Awake()
     {
         DataController.GetInstance().LoadGiftButton(this);
-        UpdateItem();
         UpdateUI();
         //StartCoroutine("AddGoldLoop");
     }
     private void OnEnable()
     {
         UpdateUI();
-    }
-    public void UpdateItem()
-    {
-
     }
 
     public void PurchaseItem()
@@ -60,7 +57,6 @@ public class GiftButton : MonoBehaviour
             isPurchased = true;
 
             DataController.GetInstance().SubGold(currentCost);
-            UpdateItem();
             UpdateUI();
             DataController.GetInstance().SaveGiftButton(this);
 
@@ -79,6 +75,7 @@ public class GiftButton : MonoBehaviour
             if(isPurchased)
             {
                 PurchaseDisplayer.text = "º¸À¯ Áß";
+                ProfileDisplayer.sprite = Profile;
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = false;
             }
             else
@@ -107,6 +104,5 @@ public class GiftButton : MonoBehaviour
     private void OnApplicationQuit()
     {
         DataController.GetInstance().SaveGiftButton(this);
-        Application.Quit();
     }
 }

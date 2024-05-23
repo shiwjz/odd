@@ -6,6 +6,6 @@ public class ChangeScene1 : MonoBehaviour
 {
     public void SceneChange()
     {
-        SceneManager.LoadScene("Option");
+        GameObject.Find("Canvas").transform.Find("Setting").gameObject.SetActive(true);
     }
 }
