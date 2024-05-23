@@ -29,6 +29,10 @@ public class GiftButton : MonoBehaviour
 
     private GameObject PopupPanel;
 
+    public string ScriptText;
+
+    public string FriendName;
+
     Image PopupImage;
 
     TMP_Text TitleText;
@@ -36,6 +40,8 @@ public class GiftButton : MonoBehaviour
     TMP_Text GameContentText;
 
     private TMP_Text DetailText;
+
+    public GameObject FriendImage;
 
     void Awake()
     {
@@ -59,11 +65,11 @@ public class GiftButton : MonoBehaviour
             DataController.GetInstance().SubGold(currentCost);
             UpdateUI();
             DataController.GetInstance().SaveGiftButton(this);
-
         }
     }
     public void UpdateUI()
     {
+        itemDisplayer.text = "누군가에게 필요해 보이는 물건, 대체 어디에 사용할 생각인 걸까?";
         //itemDisplayer.text = "Gold Per Sec: " + goldPerSec + "\nLv: " + level;
         if (!FriendData.isPurchased)
         {
@@ -74,6 +80,7 @@ public class GiftButton : MonoBehaviour
         {
             if(isPurchased)
             {
+                itemDisplayer.text = FriendName + "     /초 +50%!";
                 PurchaseDisplayer.text = "보유 중";
                 ProfileDisplayer.sprite = Profile;
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = false;
@@ -81,7 +88,7 @@ public class GiftButton : MonoBehaviour
             else
             {
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = true;
-                PurchaseDisplayer.text = "가격: " + currentCost;
+                PurchaseDisplayer.text = "  " + currentCost;
             }
         }
     }
@@ -97,8 +104,16 @@ public class GiftButton : MonoBehaviour
 
             PopupPanel.SetActive(true);
             PopupImage.sprite = Profile;
-            TitleText.text = "베스트 프렌드!";
+            TitleText.text = "Best Friend!";
+            DetailText.text = ScriptText;
+            GameContentText.text = FriendName + "     /초 +50%!";
         }
+    }
+
+    public void ResetGift()
+    {
+        isPurchased = false;
+        UpdateUI();
     }
 
     private void OnApplicationQuit()
