@@ -25,7 +25,6 @@ public class UpgradeButton : MonoBehaviour
 
         if (level == 0 && goldByUpgrade == 0 && currentCost == 0)
         {
-            
             level = 1;
             LoadGameData();
         }
@@ -40,7 +39,6 @@ public class UpgradeButton : MonoBehaviour
         if (data != null)
         {
             dataRows = data.text.Split('\n');
-
 
             if (dataRows.Length > 1)
             {
@@ -60,7 +58,7 @@ public class UpgradeButton : MonoBehaviour
 
         if (currentCurrency >= currentCost)
         {
-            dataController.AddGold(-currentCost);
+            dataController.SubGold(currentCost);
 
             if (level < dataRows.Length - 1)
             {
@@ -68,7 +66,6 @@ public class UpgradeButton : MonoBehaviour
                 UpdateUpgradeData();
                 dataController.SetGoldPerClick(goldByUpgrade);
                 SaveUpgradeButton();
-
             }
             UpdateUI();
         }
@@ -88,6 +85,7 @@ public class UpgradeButton : MonoBehaviour
             Debug.LogError("Failed to parse currentCost: " + row[1]);
         }
     }
+
     public void LoadUpgradeButton()
     {
         level = PlayerPrefs.GetInt(upgradeName + "_level", 1);
@@ -106,10 +104,7 @@ public class UpgradeButton : MonoBehaviour
     {
         LevelText.text = "레벨 : " + (level + 1).ToString();
         PriceText.text = "필요 인기도 : " + currentCost.ToString() + "\n" + "Level UP";
-
     }
-
-    
 
     public void ResetUpgradeButton()
     {

@@ -44,7 +44,7 @@ public class FeverManager : MonoBehaviour
 
     void Update()
     {
-        if (!isFeverActive && currentFeverCount > 0 && Time.time - lastClickTime > 3f)
+        if (Time.time - lastClickTime > 3f)
         {
             
             

@@ -62,7 +62,7 @@ public class ItemButton : MonoBehaviour
     public GiftButton GiftData;
 
     public GameObject FriendImage;
-    void Awake()
+    void Start()
     {
         LoadGameData();
         DataController.GetInstance().LoadItemButton(this);
@@ -157,8 +157,8 @@ public class ItemButton : MonoBehaviour
 
     public void UpdateUI()
     {
-        itemDisplayer.text = goldPerSec + "    /ÃÊ" + "\n·¹º§: " + level;
-        PurchaseDisplayer.text = "°¡°Ý: " + currentCost;
+        itemDisplayer.text = goldPerSec + "    /ï¿½ï¿½" + "\nï¿½ï¿½ï¿½ï¿½: " + level;
+        PurchaseDisplayer.text = "ï¿½ï¿½ï¿½ï¿½: " + currentCost;
 
     }
 
@@ -176,7 +176,7 @@ public class ItemButton : MonoBehaviour
             PopupImage.sprite = Profile;
             TitleText.text = "New Friend!";
             DetailText.text = ScriptText;
-            GameContentText.text = "±³½Ç¿¡ " + FriendName + " Ä£±¸ Ãß°¡!";
+            GameContentText.text = "ï¿½ï¿½ï¿½Ç¿ï¿½ " + FriendName + " Ä£ï¿½ï¿½ ï¿½ß°ï¿½!";
         }
     }
 
