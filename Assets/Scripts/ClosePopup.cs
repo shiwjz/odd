@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ClosePopup : MonoBehaviour
 {
+    public AudioSource etcsource;
     public void CloseButton()
     {
+        etcsource.Play();
         gameObject.SetActive(false);
     }
 }
