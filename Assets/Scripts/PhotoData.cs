@@ -40,6 +40,8 @@ public class PhotoData : MonoBehaviour
 
     public GameObject FriendImage;
 
+    public GameObject PhotoPoster;
+
     void Awake()
     {    
         giftButtons = FindObjectsOfType<GiftButton>();
@@ -62,6 +64,7 @@ public class PhotoData : MonoBehaviour
             isPurchased = true;
 
             DataController.GetInstance().SubGold(currentCost);
+            PhotoPoster.SetActive(true);
             UpdateUI();
             SaveData();
         }

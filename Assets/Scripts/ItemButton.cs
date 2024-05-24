@@ -63,6 +63,8 @@ public class ItemButton : MonoBehaviour
 
     public GameObject FriendImage;
 
+    public GameObject PosterImage;
+
     public Image ProfileDisplayer;
     void Awake()
     {
@@ -146,6 +148,7 @@ public class ItemButton : MonoBehaviour
             DataController.GetInstance().SaveItemButton(this);
 
             FriendImage.SetActive(true);
+            PosterImage.SetActive(true);
         }
     }
 
