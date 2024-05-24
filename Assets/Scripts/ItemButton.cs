@@ -62,6 +62,8 @@ public class ItemButton : MonoBehaviour
     public GiftButton GiftData;
 
     public GameObject FriendImage;
+
+    public Image ProfileDisplayer;
     void Awake()
     {
         LoadGameData();
@@ -132,6 +134,7 @@ public class ItemButton : MonoBehaviour
         if(DataController.GetInstance().GetGold() >= currentCost)
         {
             btnsource.Play();
+            ProfileDisplayer.sprite = Profile;
             FriendPopup();
             isPurchased = true;
             level++;
@@ -157,6 +160,9 @@ public class ItemButton : MonoBehaviour
 
     public void UpdateUI()
     {
+        if (isPurchased){
+            ProfileDisplayer.sprite = Profile;
+        }
         itemDisplayer.text = goldPerSec + "    /초" + "\n레벨: " + level;
         PurchaseDisplayer.text = "가격: " + currentCost;
 

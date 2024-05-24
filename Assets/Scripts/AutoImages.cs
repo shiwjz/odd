@@ -24,16 +24,21 @@ public class AutoImages : MonoBehaviour
         // 초기 스프라이트 설정
         for (int i = 0; i < images.Length; i++)
         {
-            if (giftButtons[i].isPurchased)
+            if (images[i] != null)
             {
-                images[i].sprite = ItemdefaultSprites[i];
+                if (giftButtons[i].isPurchased)
+                {
+                    images[i].sprite = ItemdefaultSprites[i];
+                }
+                else
+                {
+                    images[i].sprite = defaultSprites[i];
+                }
             }
             else
             {
-                images[i].sprite = defaultSprites[i];
+                images[i].sprite = ItemdefaultSprites[i];
             }
-
-
         }
 
         // 자동 이미지 변경 시작
@@ -47,9 +52,16 @@ public class AutoImages : MonoBehaviour
             // 모든 이미지를 'clicked' 상태로 변경
             for (int i = 0; i < images.Length; i++)
             {
-                if (giftButtons[i].isPurchased)
+                if (giftButtons[i] != null)
                 {
-                    images[i].sprite = ItemclickedSprites[i];
+                    if (giftButtons[i].isPurchased)
+                    {
+                        images[i].sprite = ItemclickedSprites[i];
+                    }
+                    else
+                    {
+                        images[i].sprite = clickedSprites[i];
+                    }
                 }
                 else
                 {
@@ -61,9 +73,16 @@ public class AutoImages : MonoBehaviour
             // 모든 이미지를 'default' 상태로 변경
             for (int i = 0; i < images.Length; i++)
             {
-                if (giftButtons[i].isPurchased)
+                if (giftButtons[i] != null)
                 {
-                    images[i].sprite = ItemdefaultSprites[i];
+                    if (giftButtons[i].isPurchased)
+                    {
+                        images[i].sprite = ItemdefaultSprites[i];
+                    }
+                    else
+                    {
+                        images[i].sprite = defaultSprites[i];
+                    }
                 }
                 else
                 {
