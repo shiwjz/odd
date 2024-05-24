@@ -103,6 +103,11 @@ public class UpgradeButton : MonoBehaviour
         PlayerPrefs.SetInt(upgradeName + "_level", level);
         PlayerPrefs.SetInt(upgradeName + "_goldByUpgrade", goldByUpgrade);
         PlayerPrefs.SetInt(upgradeName + "_currentCost", currentCost);
+        if (level == 0)
+        {
+            level = 1;
+            SaveUpgradeButton();
+        }
     }
 
     public void UpdateUI()
