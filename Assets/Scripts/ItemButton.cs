@@ -64,7 +64,7 @@ public class ItemButton : MonoBehaviour
     public GameObject FriendImage;
 
     public Image ProfileDisplayer;
-    void Awake()
+    void Start()
     {
         LoadGameData();
         DataController.GetInstance().LoadItemButton(this);

@@ -62,7 +62,7 @@ public class UpgradeButton : MonoBehaviour
 
         if (currentCurrency >= currentCost)
         {
-            dataController.AddGold(-currentCost);
+            dataController.SubGold(currentCost);
 
             if (level < dataRows.Length - 1)
             {

@@ -182,12 +182,12 @@ public class DataController : MonoBehaviour
         PlayerPrefs.DeleteAll();
         friendImageViewers = FindObjectsOfType<FriendImageViewer>();
         GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(true);
-        for (int i = 0; i < ItemButtons.Length;i++)
+        for (int i = 0; i < ItemButtons.Length; i++)
         {
             ItemButtons[i].ResetItem();
             GiftButtons[i].ResetGift();
         }
-        for (int i = 0; i < friendImageViewers.Length;i++)
+        for (int i = 0; i < friendImageViewers.Length; i++)
         {
             friendImageViewers[i].gameObject.SetActive(false);
         }
