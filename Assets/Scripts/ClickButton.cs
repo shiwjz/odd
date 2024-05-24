@@ -8,6 +8,7 @@ public class ClickButton : MonoBehaviour
     [SerializeField] private GameObject prefab; // 생성할 프리팹
     [SerializeField] private Transform canvasTransform; // 캔버스의 Transform
     [SerializeField] private float speed = 8;
+    public AudioSource tapsource;
     public Image buttonImage; // 버튼의 이미지 컴포넌트
     public Sprite image1; // 기본 이미지
     public Sprite image2; // 클릭 시 변경될 이미지
@@ -19,6 +20,7 @@ public class ClickButton : MonoBehaviour
 
     public void OnClick()
     {
+        tapsource.Play();
         AddGold();
         FeverManager.Instance.RegisterClick();
         buttonImage.sprite = image2; // 이미지 변경

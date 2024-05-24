@@ -11,6 +11,13 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource btnsource;
 
+    public AudioSource tapsource;
+
+    public AudioSource etcsource;
+
+    public AudioSource feversource;
+
+
     private void Awake()
     {
         GameObject.Find("MusicSlider").GetComponent<Slider>().value = musicsource.volume;
@@ -20,11 +27,15 @@ public class SoundManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         musicsource.volume = volume;
+        feversource.volume = volume;
     }
 
     public void SetButtonVolume(float volume)
     {
         btnsource.volume = volume;
+        tapsource.volume = volume;
+        etcsource.volume = volume;
+
     }
     public void OnSfx()
     {
@@ -32,6 +43,7 @@ public class SoundManager : MonoBehaviour
     }
     public void Confirm()
     {
+        etcsource.Play();
         PlayerPrefs.SetFloat("MusicVolume", musicsource.volume);
         PlayerPrefs.SetFloat("SfxVolume", btnsource.volume);
         GameObject.Find("Setting").SetActive(false);

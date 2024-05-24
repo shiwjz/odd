@@ -80,7 +80,7 @@ public class GiftButton : MonoBehaviour
         {
             if(isPurchased)
             {
-                itemDisplayer.text = FriendName + "     /초 +50%!";
+                itemDisplayer.text = FriendName + "/초 +50%!";
                 PurchaseDisplayer.text = "보유 중";
                 ProfileDisplayer.sprite = Profile;
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = false;
@@ -88,7 +88,7 @@ public class GiftButton : MonoBehaviour
             else
             {
                 PurchaseDisplayer.GetComponentInParent<Button>().interactable = true;
-                PurchaseDisplayer.text = "  " + currentCost;
+                PurchaseDisplayer.text = "" + currentCost;
             }
         }
     }
@@ -106,7 +106,7 @@ public class GiftButton : MonoBehaviour
             PopupImage.sprite = Profile;
             TitleText.text = "Best Friend!";
             DetailText.text = ScriptText;
-            GameContentText.text = FriendName + "     /초 +50%!";
+            GameContentText.text = FriendName + "/초 +50%!";
         }
     }
 

@@ -17,6 +17,8 @@ public class UpgradeButton : MonoBehaviour
 
     private string[] dataRows;
 
+    public AudioSource btnsource;
+
     void Awake()
     {
         dataController = DataController.GetInstance();
@@ -64,6 +66,7 @@ public class UpgradeButton : MonoBehaviour
 
             if (level < dataRows.Length - 1)
             {
+                btnsource.Play();
                 level++;
                 UpdateUpgradeData();
                 dataController.SetGoldPerClick(goldByUpgrade);
