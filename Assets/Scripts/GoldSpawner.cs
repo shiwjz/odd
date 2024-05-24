@@ -18,7 +18,7 @@ public class GoldSpawner : MonoBehaviour
     private void SpawnGold()
     {
         float randomX = Random.Range(0, canvasRectTransform.rect.width);
-        float randomY = Random.Range(228.1f, 1549.7f);
+        float randomY = Random.Range(500f, 1549.7f);
         GameObject gold = Instantiate(goldPrefab, canvasRectTransform);
         RectTransform goldRectTransform = gold.GetComponent<RectTransform>();
         goldRectTransform.anchoredPosition = new Vector2(randomX - canvasRectTransform.rect.width / 2, randomY - canvasRectTransform.rect.height / 2);
