@@ -40,8 +40,10 @@ public class PhotoData : MonoBehaviour
 
     public GameObject FriendImage;
 
+    public GameObject PhotoPoster;
+
     void Awake()
-    {    
+    {
         giftButtons = FindObjectsOfType<GiftButton>();
         LoadData();
         UpdateUI();
@@ -62,6 +64,7 @@ public class PhotoData : MonoBehaviour
             isPurchased = true;
 
             DataController.GetInstance().SubGold(currentCost);
+            PhotoPoster.SetActive(true);
             UpdateUI();
             SaveData();
         }
@@ -70,16 +73,9 @@ public class PhotoData : MonoBehaviour
     {
         itemDisplayer.text = "...";
         //itemDisplayer.text = "Gold Per Sec: " + goldPerSec + "\nLv: " + level;
-        for(int i = 0; i< giftButtons.Length; i++)
+        for (int i = 0; i < giftButtons.Length; i++)
         {
-            if (!giftButtons[i].isPurchased)
-            {
-                PurchaseDisplayer.text = "준비 중";
-                PurchaseDisplayer.GetComponentInParent<Button>().interactable = false;
-            }
-            else
-            {
-                if(isPurchased)
+                if (isPurchased)
                 {
                     itemDisplayer.text = "";
                     PurchaseDisplayer.text = "보유 중";
@@ -91,7 +87,6 @@ public class PhotoData : MonoBehaviour
                     PurchaseDisplayer.GetComponentInParent<Button>().interactable = true;
                     PurchaseDisplayer.text = "  " + currentCost;
                 }
-            }
         }
     }
     public void FriendPopup()
@@ -133,7 +128,7 @@ public class PhotoData : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Photo_isPurchased") == 1)
         {
-            isPurchased=true;
+            isPurchased = true;
         }
         else
         {

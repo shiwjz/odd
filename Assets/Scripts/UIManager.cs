@@ -14,9 +14,9 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         goldDisplayer.text = " " + DataController.GetInstance().GetGold();
-        goldPerClickDisplayer.text = DataController.GetInstance().GetGoldPerClick() + "       /탭";
+        goldPerClickDisplayer.text = DataController.GetInstance().GetGoldPerClick() + "              /탭";
        // goldPerSecDisplayer.text = "초당 인기도 : " + DataController.GetInstance().GetGoldPerSec();
-        goldPerSecDisplayer.text = PlayerPrefs.GetInt("GoldPerSec") + "       /초";
+        goldPerSecDisplayer.text = PlayerPrefs.GetInt("GoldPerSec") + "              /초";
 
     }
 }
