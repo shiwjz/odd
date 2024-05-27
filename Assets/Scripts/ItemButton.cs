@@ -36,7 +36,7 @@ public class ItemButton : MonoBehaviour
     //[HideInInspector]
 
     //public float upgradePow = 1.07f;
-    
+
     public bool isPurchased = false;
 
     public string ScriptText;
@@ -62,6 +62,8 @@ public class ItemButton : MonoBehaviour
     public GiftButton GiftData;
 
     public GameObject FriendImage;
+
+    public GameObject PosterImage;
 
     public Image ProfileDisplayer;
     void Start()
@@ -100,7 +102,7 @@ public class ItemButton : MonoBehaviour
         else
         {
             goldPerSec = int.Parse(row[2]);
-            if(GiftData.isPurchased)
+            if (GiftData.isPurchased)
             {
                 goldPerSec = (int)(goldPerSec * 1.5f);
             }
@@ -126,12 +128,12 @@ public class ItemButton : MonoBehaviour
 
             }
 
-            yield return new WaitForSeconds(1.0f);            
+            yield return new WaitForSeconds(1.0f);
         }
     }
     public void PurchaseItem()
     {
-        if(DataController.GetInstance().GetGold() >= currentCost)
+        if (DataController.GetInstance().GetGold() >= currentCost)
         {
             btnsource.Play();
             ProfileDisplayer.sprite = Profile;
@@ -146,6 +148,7 @@ public class ItemButton : MonoBehaviour
             DataController.GetInstance().SaveItemButton(this);
 
             FriendImage.SetActive(true);
+            PosterImage.SetActive(true);
         }
     }
 
@@ -160,7 +163,8 @@ public class ItemButton : MonoBehaviour
 
     public void UpdateUI()
     {
-        if (isPurchased){
+        if (isPurchased)
+        {
             ProfileDisplayer.sprite = Profile;
         }
         itemDisplayer.text = goldPerSec + "    /√ " + "\n∑π∫ß: " + level;
@@ -190,7 +194,7 @@ public class ItemButton : MonoBehaviour
     {
         level = 0;
         goldPerSec = 0;
-        isPurchased= false;
+        isPurchased = false;
         currentCost = 0;
         UpdateItemData();
         UpdateUI();
